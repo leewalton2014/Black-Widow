@@ -37,3 +37,22 @@ INSERT INTO `aa_event_stage` (`stageID`, `stageNumber`, `stageCapacity`) VALUES
 ('s3', '3', '500'),
 ('s4', '4', '5000'),
 ('s5', '5', '2000');
+
+DROP TABLE IF EXISTS `aa_customers`;
+CREATE TABLE IF NOT EXISTS `aa_customers` (
+  `custID` int(10) NOT NULL auto_increment,
+  `custForename` varchar(100) default NULL,
+  `custSurname` varchar(400) default NULL,
+  `custEmail` varchar(6) default NULL,
+  `custGAUTHID` varchar(6) default NULL,
+  KEY `custID` (`custID`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=979;
+
+DROP TABLE IF EXISTS `aa_sales`;
+CREATE TABLE IF NOT EXISTS `aa_sales` (
+  `saleID` int(10) NOT NULL auto_increment,
+  `custID` varchar(100) default NULL,
+  `eventID` varchar(400) default NULL,
+  `saleQuantity` varchar(6) default NULL,
+  KEY `saleID` (`saleID`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=979;
