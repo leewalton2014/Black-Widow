@@ -3,6 +3,8 @@ CREATE TABLE IF NOT EXISTS `aa_events` (
   `eventID` int(10) NOT NULL auto_increment,
   `eventTitle` varchar(100) default NULL,
   `eventDescription` varchar(400) default NULL,
+  `eventDate` varchar(400) default NULL,
+  `eventTime` varchar(400) default NULL,
   `typeID` varchar(6) default NULL,
   `stageID` varchar(6) default NULL,
   `ticketPrice` decimal(4,2) default NULL,
