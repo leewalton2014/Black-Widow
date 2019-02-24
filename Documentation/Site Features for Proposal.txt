@@ -1,0 +1,36 @@
+Features for Project proposal
+----------------------
+Site summary parahraph/features
+......................................
+Summary
+**********
+Our site is an online home for the 'Avengers arena', the page will serve
+as a homepage for the arena telling customers information about upcoming events,
+facilities, location and opening times of the arena. Alongside this the website will
+allow for the online sales of e-tickets for all events at the arena. The site will use
+paypal for processing payments as to avoid the risk took when dirtectly handling
+customers card details.
+
+The site must have the following functionality:
+-Landing page containing list of current events and intro to arena
+-Page for opening times and location of the arena
+-Page to display all events
+-Form to add a new event to the events database to display for sale
+-Ability to take payments for products via paypal
+-Database to store information about events and orders
+-Optimised for viewing on mobile devices
+
+The site should have the following functionality:
+-Admin restrictions for pages that allow modification of the site such as
+ adding or modifying event records.
+-Ability to specify a maximum amount of tickets for sale.
+-Fully custom shopping cart.
+
+The site could have the following functionality:
+-AJAX functionality to display live data for remaining tickets available out of the quota.
+-Ability to archive past events as to remove them from being displayed.
+
+The site wont have the following functionality:
+-Delivery of e-tickets will not be included in our project, however email infromation
+ will recorded to aid the future implementation of a fulfillment sytem for tickets via
+ email.
