@@ -22,7 +22,7 @@ function setSessionPath(){
 //Cart item count
 function cartItemCounter(){
     $custID = 999;
-    $countSQL = "SELECT count(cartItemID)
+    $countSQL = "SELECT sum(cartItemQuantity)
     FROM aa_cart
     WHERE custID = $custID";
     $count = exec($countSQL);
