@@ -40,6 +40,7 @@ require_once('functions.php');
             //}//end while
             echo "</select>";
             echo "<label for='ticketPrice'>Price: </label><input type='text' name='ticketPrice' id='ticketPrice'/>\n";
+            echo "<label for='eventImage'>Upload Image: </label><input type='file' name='eventImage'/>\n";
             echo "<input type='submit' value='Update Record'/>\n";
             echo"</form>\n";
             echo "</fieldset>\n";
