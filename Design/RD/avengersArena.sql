@@ -9,8 +9,8 @@ CREATE TABLE IF NOT EXISTS 'aa_events' (
   'stageID' varchar(10) default NULL,
   'ticketPrice' decimal(4,2) default NULL,
   'imgRef' varchar(100) default NULL,
-  KEY 'recordID' ('recordID')
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=979;
+  PRIMARY KEY ('eventID')
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=100;
 
 DROP TABLE IF EXISTS 'aa_event_type';
 CREATE TABLE IF NOT EXISTS 'aa_event_type' (
@@ -19,7 +19,7 @@ CREATE TABLE IF NOT EXISTS 'aa_event_type' (
   PRIMARY KEY  ('typeID')
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
-INSERT INTO 'aa_event_type' ('typeID', 'eventType', 'eventGenre') VALUES
+INSERT INTO 'aa_event_type' ('typeID', 'eventType') VALUES
 ('t1', 'Music'),
 ('t2', 'Film'),
 ('t3', 'Comedy'),
