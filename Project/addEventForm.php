@@ -8,19 +8,19 @@ require_once('functions.php');
         $dbConn = getConnection();
 
         //Query to generate publisher select list
-        //$sqlType = "SELECT typeID, eventType, eventGenre
-        //FROM aa_event_type";
-        //$queryTypeResult = $dbConn->query($sqlType);
+        $sqlType = "SELECT typeID, eventType
+        FROM aa_event_type";
+        $queryTypeResult = $dbConn->query($sqlType);
         //Query to generate category select list
-        //$sqlStage = "SELECT stageID, stageNumber, stageCapacity
-        //FROM aa_event_stage";
-        //$queryStageResult = $dbConn->query($sqlStage);
+        $sqlStage = "SELECT stageID, stageNumber, stageCapacity
+        FROM aa_event_stage";
+        $queryStageResult = $dbConn->query($sqlStage);
 
 
 
             echo "<fieldset class='createEvent'>\n";
             echo "<legend>Create Event</legend>\n";
-            echo "<form action='' method='get' id='createEvent'>\n";
+            echo "<form action='addEvent.php' method='POST' id='createEvent'>\n";
             echo "<label for='eventTitle'>Event Title: </label><input type='text' name='eventTitle' id='eventTitle' placeholder='Enter a title for the event'/>\n";
             echo "<label for='eventDescription'>Event Description: </label><input type='text' name='eventDescription' id='eventDescription'/>\n";
             echo "<label for='eventDate'>Event Date: </label><input type='date' name='eventDate' id='eventDate'/>\n";
@@ -28,20 +28,20 @@ require_once('functions.php');
             echo "<label for='typeID'>Event Type: </label>\n
               <select name='typeID' id='typeID'>\n";
             //fetch all categories one by one into the drop down list
-            //while ($type = $queryTypeResult->fetchObject()) {
-                //echo "<option value='{$type->typeID}'>{$type->eventType}|{$type->eventGenre}</option>\n";
-            //}
+            while ($type = $queryTypeResult->fetchObject()) {
+                echo "<option value='{$type->typeID}'>{$type->eventType}</option>\n";
+            }
             echo "</select>";
             echo "<label for='stageID'>Stage: </label>\n";
             echo "<select name='stageID' id='stageID'>\n";
             //fetch all categories one by one into the drop down list
-            //while ($stage = $queryStageResult->fetchObject()) {
-                    //echo "<option value='{$stage->stageID}'>{$stage->stageNumber}|Max: {$stage->stageCapacity}</option>";
-            //}//end while
+            while ($stage = $queryStageResult->fetchObject()) {
+                    echo "<option value='{$stage->stageID}'>Stage: {$stage->stageNumber}|Max Capacity: {$stage->stageCapacity}</option>";
+            }//end while
             echo "</select>";
             echo "<label for='ticketPrice'>Price: </label><input type='text' name='ticketPrice' id='ticketPrice'/>\n";
-            echo "<label for='eventImage'>Upload Image: </label><input type='file' name='eventImage'/>\n";
-            echo "<input type='submit' value='Update Record'/>\n";
+            echo "<label for='eventImage'>Upload Image: </label><input type='file' name='eventImage' id='eventImage'/>\n";
+            echo "<input type='submit' value='Add Event'/>\n";
             echo"</form>\n";
             echo "</fieldset>\n";
     }//end try
