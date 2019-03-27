@@ -31,10 +31,10 @@ $ticketPrice = filter_has_var(INPUT_POST, 'ticketPrice') ? $_POST['ticketPrice']
 $ticketPrice = trim($ticketPrice);
 
 //File upload Var
-$img_dir = "SEPractise/Testing/t1/Event_IMG";
+$img_dir = "Event_IMG/";
 $img_target = $img_dir . basename($_FILES["eventImage"]["name"]);
 $img_name = basename($_FILES["eventImage"]["name"]);
-$imgFileType = strtolower(pathinfo($img_target,PATHINFO_EXTENSION));
+//$imgFileType = strtolower(pathinfo($img_target,PATHINFO_EXTENSION));
 if (move_uploaded_file($_FILES["eventImage"]["tmp_name"], $img_target)){
   echo "The file ". basename( $_FILES["eventImage"]["name"]). " has been uploaded.";
 } else {
@@ -45,9 +45,14 @@ $addEventSQL = "INSERT INTO aa_events (eventTitle, eventDescription,
 eventDate, eventTime, typeID, stageID, ticketPrice, imgRef)
 VALUES ('$eventTitle', '$eventDescription',
 '$eventDate', '$eventTime', '$typeID', '$stageID', '$ticketPrice', '$img_name')";
-$execSQL = exec($addEventSQL);
 
-//redirect
-echo "<p>Event Added!</p>";
+$queryResult = $dbConn->query($addEventSQL);
+
+if ($queryResult === false) {
+  echo "<p>Query failed: " . $dbConn->error . "</p>\n";
+  exit;
+} else {
+  echo "<p>Event Added!</p>";
+}
 
 ?>

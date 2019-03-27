@@ -20,7 +20,7 @@ require_once('functions.php');
 
             echo "<fieldset class='createEvent'>\n";
             echo "<legend>Create Event</legend>\n";
-            echo "<form action='addEvent.php' method='POST' id='createEvent'>\n";
+            echo "<form action='addEvent.php' method='POST' enctype='multipart/form-data' id='createEvent'>\n";
             echo "<label for='eventTitle'>Event Title: </label><input type='text' name='eventTitle' id='eventTitle' placeholder='Enter a title for the event'/>\n";
             echo "<label for='eventDescription'>Event Description: </label><input type='text' name='eventDescription' id='eventDescription'/>\n";
             echo "<label for='eventDate'>Event Date: </label><input type='date' name='eventDate' id='eventDate'/>\n";
