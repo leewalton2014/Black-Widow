@@ -3,7 +3,7 @@
 function getConnection() {
     try {
         $connection = new PDO("mysql:host=localhost;dbname=unn_w17007224",
-            "unn_w17007224", "WD4135LWGM");
+            "unn_w17007224", "DB2020AVENGERS");
         $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         return $connection;
     } catch (Exception $e) {
