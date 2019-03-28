@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Home - Avengers Arena</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+</head>
+
+<body onload="loader()" style="margin:0;">
+    <div id="loader"></div>
+    <div id="loaderBg">
+      <img src="Images/loadingLogo.png"/>
+    </div>
+    <!-- Width of main content area -->
+    <div id="mainWrap"  style="display:none;" class="animate-bottom">
+        <header>
+          <!-- responsive menu icon -->
+          <img id="menuBtn" src="icons/round-menu-24px.svg" onclick="menu()" alt="menu"/>
+          
+          <a href="#" id="logIn">
+            <!--<img src="icons/baseline-account_box-24px.svg"/>-->
+            <h2>Log in</h2>
+          </a>
+            <nav id="nav">
+              <ul>
+                <li><a href="#"><img src="icons/round-supervised_user_circle-24px.svg"/>About</a></li>
+                <li><a href="#"><img src="icons/round-event_note-24px.svg"/>View Events</a></li>
+                <li><a href="#"><img src="icons/t-shirt-black-silhouette.svg"/>Merchindice</a></li>
+                <li><a href="#"><img src="icons/round-format_align_left-24px.svg"/>News</a></li>
+                <li class="active"><a href="#"><img src="icons/baseline-home-24px.svg"/>Home</a></li>
+              </ul>
+            </nav>
+            <div id="search">
+            </div>
+        </header>
+        <main>
+          <img id="logo" src="Images/logo.png"/>
+            <div class="slider">
+              <input type="radio" name="slider" title="slide1" checked="checked" class="slider__nav"/>
+              <input type="radio" name="slider" title="slide2" class="slider__nav"/>
+              <input type="radio" name="slider" title="slide3" class="slider__nav"/>
+              <input type="radio" name="slider" title="slide4" class="slider__nav"/>
+              
+              <div class="slider__inner">
+                <div class="slider__contents">
+                  <h2 class="slider__caption">Content Slider Example Text</h2>
+                  <p class="slider__txt">Etiam porttitor lectus in iaculis egestas. Pellentesque in neque sollicitudin, tempor quam vel, rhoncus felis. Integer bibendum posuere mauris id ultricies.</p>
+                </div>
+                <div class="slider__contents">
+                  <h2 class="slider__caption">Content Slider Example Text</h2>
+                  <p class="slider__txt">Etiam porttitor lectus in iaculis egestas. Pellentesque in neque sollicitudin, tempor quam vel, rhoncus felis. Integer bibendum posuere mauris id ultricies.</p>
+                </div>
+                <div class="slider__contents">
+                  <h2 class="slider__caption">Content Slider Example Text</h2>
+                  <p class="slider__txt">Etiam porttitor lectus in iaculis egestas. Pellentesque in neque sollicitudin, tempor quam vel, rhoncus felis. Integer bibendum posuere mauris id ultricies.</p>
+                </div>
+                <div class="slider__contents">
+                  <h2 class="slider__caption">Content Slider Example Text</h2>
+                  <p class="slider__txt">Etiam porttitor lectus in iaculis egestas. Pellentesque in neque sollicitudin, tempor quam vel, rhoncus felis. Integer bibendum posuere mauris id ultricies.</p>
+                </div>
+              </div>    
+            </div>
+            
+            <div id="callUs">
+              <p id="callUsMain">You can call us to make a booking by phone</p>
+              <img src="icons/round-call-24px.svg"/>
+              <i>07127656982</i>
+            </div>
+            
+            <article id="welcome">
+              <div><!--IMG Wrap-->
+                <img src="Images/welcome.jpg"> 
+              </div>
+              <section>
+                  <p>love music events?</p>
+                  <h2>Welcome Home</h2>
+                  <hr>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.</p>
+              </section>
+            </article>
+            
+            <article id="featured">
+                <p id="tagline">Upcoming Events and Gigs</p>
+                <h3>Featured Events</h3>
+                <!-- events -->
+                <div id="eventWrap">
+                  
+                  <section class="event" style="background-image: url(Images/event.png)"><!--Image URL-->
+                    <a href="#"><!-- link generated with php -->  
+                      <p>Tyler The Creator</p><!--Title-->
+                      <p>3rd August 2019</p><br/><!--Date-->
+                      <i>Tyler Gregory Okonma better known by his stage name Tyler, The Creator, is an American rapper and record producer from California.</i><!--Desc 120 charaters max-->
+                    </a>
+                  </section>
+                  
+                  <section class="event">
+                    <a href="#">  
+                      <p>Title</p>
+                      <p>Date</p><br/>
+                      <i>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </i>
+                    </a>
+                  </section>
+                  <section class="event">
+                    <a href="#">  
+                      <p>Title</p>
+                      <p>Date</p><br/>
+                      <i>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </i>
+                    </a>
+                  </section>
+                  <section class="event">
+                    <a href="#">  
+                      <p>Title</p>
+                      <p>Date</p><br/>
+                      <i>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </i>
+                    </a>
+                  </section>
+                  <section class="event">
+                    <a href="#">  
+                      <p>Title</p>
+                      <p>Date</p><br/>
+                      <i>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </i>
+                    </a>
+                  </section>
+                  <section class="event">
+                    <a href="#">  
+                      <p>Title</p>
+                      <p>Date</p><br/>
+                      <i>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </i>
+                    </a>
+                  </section>
+                </div>
+            </article>
+            
+            <footer>
+                <div id="social">
+                </div>
+                <div id="logo">
+                </div>
+                <div id="footerNav">
+                </div>
+            </footer>
+        </main>
+    </div>
+<!--Page Loader-->
+<script>
+var myVar;
+function loader() {
+  myVar = setTimeout(showPage, 3000);
+}
+function showPage() {
+  document.getElementById("loader").style.display = "none";
+  document.getElementById("loaderBg").style.display = "none";
+  document.getElementById("mainWrap").style.display = "block";
+}
+</script>  
+<script>
+function menu() {
+  var x = document.getElementById("nav");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+    this.style.backgroundImage="url()";
+  } else {
+    x.style.display = "none";
+  }
+}
+</script>
+</body>
+
+</html>
