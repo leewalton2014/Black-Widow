@@ -28,4 +28,12 @@ function cartItemCounter(){
     $count = exec($countSQL);
     return $count;
 }
+//Page Start
+function startPage(){
+  
+}
+//Page end
+function endPage(){
+
+}
 ?>
