@@ -21,7 +21,7 @@ require_once('functions.php');
           echo "<div class='eventDescription'><p>{$rowObj->eventDescription}</p></div>\n";
           echo "<div class='eventDate'><p>Date: {$rowObj->eventDate}</p></div>\n";
           echo "<div class='eventTime'><p>Time: {$rowObj->eventTime}</p></div>\n";
-          echo "<div class='eventType'><p>Event Type:{$rowObj->eventType}</p></div>\n";
+          echo "<div class='eventType'><p>Event Type: {$rowObj->eventType}</p></div>\n";
           echo "<div class='stageNumber'><p>Stage Number: {$rowObj->stageNumber}</p></div>\n";
           echo "<div class='stageCapacity'><p>Tickets Available: {$rowObj->stageCapacity}</p></div>\n";
           echo "<div class='ticketPrice'><p>Price: {$rowObj->ticketPrice}</p></div>\n";
