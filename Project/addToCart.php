@@ -9,7 +9,8 @@ require_once('functions.php');
         $eventID = trim($eventID);
         $ticketQuantity = filter_has_var(INPUT_POST, 'ticketQuantity') ? $_POST['ticketQuantity'] : null;
         $ticketQuantity = trim($ticketQuantity);
-        $username = $_SESSION['username'];
+        //$username = $_SESSION['username'];
+        $username = "LWalton";
 
         //Query to add record to cart table
         $sqlAddToCart = "INSERT INTO aa_cart (eventID, cartItemQuantity, custID)

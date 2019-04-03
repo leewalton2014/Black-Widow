@@ -8,22 +8,23 @@ require_once('functions.php');
         echo "<h2>Your Basket</h2>";
 
         //Display cart items
-        $username = $_SESSION['username'];
+        //$username = $_SESSION['username'];
+        $username = "LWalton";
 
-        $getCart = "SELECT cartItemID, aa_cart.recordID, eventTitle, eventPrice, itemQuantity, eventID
+        $getCart = "SELECT cartItemID, aa_events.eventID, eventTitle, ticketPrice, cartItemQuantity
         FROM aa_cart
-        INNER JOIN aa_records ON aa_cart.eventID = aa_events.eventID
-        WHERE username = '$username'";
+        INNER JOIN aa_events ON aa_cart.eventID = aa_events.eventID
+        WHERE custID = '$username'";
 
         $queryResult = $dbConn->query($getCart);
         while ($rowObj = $queryResult->fetchObject()) {
-            echo "<fieldset id='{$rowObj->recordID}'>\n";
-            echo "<form action='updateAmount.php' method='get' id='{$rowObj->recordID}'>\n";
+            echo "<fieldset id='{$rowObj->eventID}'>\n";
+            echo "<form action='updateAmount.php' method='get' id='{$rowObj->eventID}'>\n";
             echo "<input type='hidden' name='cartItemID' value='{$rowObj->cartItemID}' id='cartItemID'/>\n";
             echo "<a class='button' href='viewEvent.php?eventID={$rowObj->eventID}'>{$rowObj->eventTitle}</a>";
             echo "<p>Price: {$rowObj->ticketPrice}</p>\n";
             echo "<a href='removeItem.php?cartItemID={$rowObj->cartItemID}'><p>Remove Item</p></a>\n";
-            echo "<label for='quantity'>Quantity:</label><input type='text' value='{$rowObj->itemQuantity}' id='quantity' name='quantity'>";
+            echo "<label for='quantity'>Quantity:</label><input type='number' value='{$rowObj->cartItemQuantity}' id='quantity' name='quantity'>";
             echo "<input type='submit' value='Update Quantity'/>\n";
             echo"</form>\n";
             echo "</fieldset>\n";

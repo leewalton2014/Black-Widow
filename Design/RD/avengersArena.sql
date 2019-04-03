@@ -69,4 +69,4 @@ CREATE TABLE IF NOT EXISTS 'aa_cart' (
   'eventID' varchar(10) default NULL,
   'cartItemQuantity' varchar(6) default NULL,
   KEY 'cartItemID' ('cartItemID')
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=979;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=100;
