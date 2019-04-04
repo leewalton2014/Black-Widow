@@ -1,9 +1,14 @@
 @font-face {
     font-family: 'lemonmilkbold';
     src: url("lemonMilk.otf") format("opentype");
+    src: url("lemonMilk.eot"); /* IE9 Compat Modes */
+    src: url("lemonMilk.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
+         url("lemonMilk.woff") format("woff"), /* Modern Browsers */
+         url("lemonMilk.ttf")  format("truetype"), /* Safari, Android, iOS */
+         url("lemonMilk.svg#LemonMilk") format("svg"); /* Legacy iOS */
 }
 
-html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, acronym, address, big, cite, code, del, dfn, em, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
   margin: 0;
   padding: 0;
   border: 0;
@@ -65,6 +70,12 @@ body {
   margin: 0 auto;
   display: block;
 }
+main {
+  position: relative;
+}
+
+/* ------------- Header ------------- */
+
 header {
   display: flex;
 }
@@ -72,13 +83,32 @@ header {
   flex: 1;
   padding: 10px;
   cursor: pointer;
+  text-decoration: none;
+}
+#logIn h2 {
+  font-family: 'Montserrat', sans-serif;
+  letter-spacing: 0;
+  font-weight: bold;
+  transition: 0.3s ease;
+}
+#logIn h2:hover {
+  color: #3e3e3e;
 }
 #logIn img {
   float:left;
   padding-right: 5px;
 }
-main {
-  position: relative;
+#responsiveLogo {
+  display: none;
+  width: 100px;
+  height: 100px;
+  background: #e25757;
+  border-radius: 100%;
+  position: absolute;
+  left: 50vw;
+  z-index: 999;
+  margin-left: -50px;
+  margin-top: -5px;
 }
 
 /* ------------- Navigation ------------- */
@@ -93,9 +123,12 @@ nav ul {
   height: 45px
 }
 nav li {
-  padding: 25px 15px;
+  padding:10px 15px;
   display: inline;
   text-align: center;
+  transition: 0.3s ease;
+  padding-bottom: 22px;
+  padding-top: 0;
 }
 nav li a {
   color: #ffffff;
@@ -115,9 +148,46 @@ nav img {
 }
 #menuBtn {
   padding: 20px;
-  display: none;
   z-index: 999;
+  display: none;
+  
 }
+#menuBtn:checked ~ nav {
+  display: block;
+}
+#menuBtn + label{
+  display: none;
+  background-image: url(icons/iconmonstr-menu-1-32.png);
+  height: 32px;
+  width: 32px;
+  background-repeat: no-repeat;
+  background-position: center;
+  padding: 40px;
+  z-index: 999;
+  transition: 1s ease;
+}
+#menuBtn:checked + label{
+  display: none;
+  background-image: url(icons/iconmonstr-x-mark-2-32.png);
+}
+/* ------------- Search -------------*/
+
+#searchBtn {
+  padding: 20px;
+  z-index: 999;
+  display: none;
+}
+#search {
+  width: 100%;
+  background: #e25757;
+  height: 0px;
+  transition: 0.3s ease;
+}
+#searchBtn:checked ~ #search {
+  width: 100%;
+  height: 60px;
+}
+
 
 /* ------------- Loader -------------*/
 
@@ -132,8 +202,8 @@ nav img {
   position: fixed;
   left: 50%;
   top: 50%;
-  margin-top: -57px;
-  margin-left: -55px;
+  margin-top: -49px;
+  margin-left: -47px;
 }
 
 #loader {
@@ -143,7 +213,7 @@ nav img {
   z-index: 999;
   width: 150px;
   height: 150px;
-  margin: -75px 0 0 -75px;
+  margin: -67px 0 0 -67px;
   border: 16px solid #333;
   border-radius: 50%;
   border-top: 16px solid #e25757;
@@ -348,6 +418,11 @@ check {  50% {
   font-family: 'lemonmilkbold';
   letter-spacing: 3px;
 }
+#callUs i {
+  font-family: 'lemonmilkbold';
+  letter-spacing: 2px;
+  padding-left: 10px;
+}
 #callUsMain {
   flex: 1;
 }
@@ -458,6 +533,73 @@ check {  50% {
   color: black;
 }
 
+/* -------------- Footer ------------- */
+
+footer {
+  background: #e25757;
+  display: flex;
+  justify-content:center;
+  align-items: stretch;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+#footerImg {
+  height: 128px;
+  width: 100%;
+  content: " ";
+  background-image: url(Images/footer.png);
+}
+footer div {
+  flex-grow: 1;
+  min-width: 200px;
+}
+footer ul {
+  text-align: right;
+  padding: 0px 1vw;
+}
+footer a {
+  color: white;
+  text-decoration: none;
+}
+footer li .active {
+  text-decoration: underline;
+}
+#footerLogo{
+  position: relative;
+  left: 50%;
+  margin-left: -130px;
+}
+footer i {
+  text-align: center;
+  display: block;
+}
+footer #social {
+  display: flex;
+  flex-flow: row wrap;
+}
+footer #social::before, footer #social::after {
+  content: '';
+  width: 100%;
+  order: 1;
+}
+footer #social img {
+  height: 48px;
+  width: 48px;
+  padding: 8px;
+  position: relative;
+  right: -10px;
+  transition: 0.3s ease;
+}
+footer #social img:hover {
+  opacity: .5;
+  cursor: pointer;
+}
+footer #social span {
+  width: 100%;
+  height: 1px;
+}
+
+
 /* -------------- Media Query ------------- */
 
 @media only screen and (min-width: 768px) {
@@ -507,8 +649,14 @@ check {  50% {
   nav li:hover {
     background: none;
   }
-  #menuBtn {display: block;}
-  #search {display: block;}
+  #menuBtn {display: none;}
+  #menuBtn + label{display:inline-block;}  
+  #menuBtn:checked + label{display:inline-block;}
+  
+  .slider {
+    height: 65vh;
+    min-height: 500px;
+  }
   
   #callUs p {
     display: none;
@@ -528,12 +676,17 @@ check {  50% {
     padding: 20px 10px;
   }
   
+  #featured {
+    padding-bottom: 0;
+  }
   #featured h3{
     margin-bottom: -50px;
     text-align: center;
+    padding: 0;
   }
   #featured #tagline{
     text-align: center;
+    padding: 0;
   }
   #featured .event {
     height: 40vh;
@@ -557,4 +710,31 @@ check {  50% {
   position: relative;
   top: 0px;
 }
+  
+  footer {
+    display: block;
+    padding-bottom: 40px;
+    margin-bottom: 10px;
+    
+  }
+  footer div{
+    flex: none;
+    width: 100%;
+    display: block;
+  }
+  footer ul {
+    display: none;
+  }
+  footer img {
+    display: none;
+  }
+  footer i{
+    text-align: left;
+  }
+  #responsiveLogo {
+  display: block;
+  }
+  #logo {
+    display: none;
+  }
 }

@@ -8,35 +8,46 @@
     <!-- CSS -->
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Knewave" rel="stylesheet">
 </head>
-
 <body onload="loader()" style="margin:0;">
     <div id="loader"></div>
     <div id="loaderBg">
       <img src="Images/loadingLogo.png"/>
     </div>
+    
     <!-- Width of main content area -->
     <div id="mainWrap"  style="display:none;" class="animate-bottom">
+        <input type="checkbox"/ id="searchBtn"  alt="search button">
+        <label for="searchBtn"></label>
         <header>
+          <!-- responsive logo -->
+          <img id="responsiveLogo" src="Images/mobileLogo.png"/>
           <!-- responsive menu icon -->
-          <img id="menuBtn" src="icons/round-menu-24px.svg" onclick="menu()" alt="menu"/>
+          <input type="checkbox" id="menuBtn" alt="menu button"/>
+          <label for="menuBtn"></label>
+          
+          
+          <!-- Search bar -->
           
           <a href="#" id="logIn">
-            <!--<img src="icons/baseline-account_box-24px.svg"/>-->
+            <img alt="log in" src="icons/iconmonstr-log-out-13-24.png"/>
             <h2>Log in</h2>
           </a>
-            <nav id="nav">
-              <ul>
-                <li><a href="#"><img src="icons/round-supervised_user_circle-24px.svg"/>About</a></li>
-                <li><a href="#"><img src="icons/round-event_note-24px.svg"/>View Events</a></li>
-                <li><a href="#"><img src="icons/t-shirt-black-silhouette.svg"/>Merchindice</a></li>
-                <li><a href="#"><img src="icons/round-format_align_left-24px.svg"/>News</a></li>
-                <li class="active"><a href="#"><img src="icons/baseline-home-24px.svg"/>Home</a></li>
-              </ul>
-            </nav>
-            <div id="search">
-            </div>
+          <nav id="nav">
+            <ul>
+              <li><a href="#"><img src="icons/round-supervised_user_circle-24px.svg"/>About</a></li>
+              <li><a href="#"><img src="icons/round-event_note-24px.svg"/>View Events</a></li>
+              <li><a href="#"><img src="icons/t-shirt-black-silhouette.svg"/>Merchandice</a></li>
+              <li><a href="#"><img src="icons/round-format_align_left-24px.svg"/>News</a></li>
+              <li class="active"><a href="#"><img src="icons/baseline-home-24px.svg"/>Home</a></li>
+            </ul>
+          </nav>
+          
         </header>
+        <div id="search">
+          <p>Test</p>
+        </div>
         <main>
           <img id="logo" src="Images/logo.png"/>
             <div class="slider">
@@ -67,7 +78,7 @@
             
             <div id="callUs">
               <p id="callUsMain">You can call us to make a booking by phone</p>
-              <img src="icons/round-call-24px.svg"/>
+              <img src="icons/iconmonstr-smartphone-3-24.png" alt="phone"/>
               <i>07127656982</i>
             </div>
             
@@ -134,13 +145,28 @@
                   </section>
                 </div>
             </article>
-            
+            <div id="footerImg"></div>
             <footer>
-                <div id="social">
+                <div id="social">                  
+                  <img alt="facebook" src="icons/iconmonstr-facebook-4-48.png"/>
+                  <img alt="instagram" src="icons/iconmonstr-instagram-14-48.png"/>
+                  <img alt="email" src="icons/iconmonstr-gmail-4-48.png"/>
+                  <span class="line-break"></span>
+                  <img alt="youtube" src="icons/iconmonstr-youtube-4-48.png"/>
+                  <img alt="twitter" src="icons/iconmonstr-twitter-4-48.png"/>
                 </div>
-                <div id="logo">
+                <div >
+                  <img id="footerLogo" alt="Avengers Arena with logo" src="Images/logo_80x260.png"/>
+                  <i>Copyright &copy; Avengers Arena</i> 
                 </div>
                 <div id="footerNav">
+				  <ul>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">View Events</a></li>
+                    <li><a href="#">Merchandice</a></li>
+                    <li><a href="#">News</a></li>
+                    <li class="active"><a href="#">Home</a></li>
+                  </ul>
                 </div>
             </footer>
         </main>
@@ -149,7 +175,7 @@
 <script>
 var myVar;
 function loader() {
-  myVar = setTimeout(showPage, 3000);
+  myVar = setTimeout(showPage, 1000);
 }
 function showPage() {
   document.getElementById("loader").style.display = "none";
@@ -157,17 +183,6 @@ function showPage() {
   document.getElementById("mainWrap").style.display = "block";
 }
 </script>  
-<script>
-function menu() {
-  var x = document.getElementById("nav");
-  if (x.style.display === "none") {
-    x.style.display = "block";
-    this.style.backgroundImage="url()";
-  } else {
-    x.style.display = "none";
-  }
-}
-</script>
 </body>
 
 </html>
