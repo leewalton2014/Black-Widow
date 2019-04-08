@@ -606,7 +606,7 @@ footer #social span {
 /* -------------- Event Page ------------- */
  
 .event_card .imgRef {
-  height: 200px;
+  height: 260px;
   width: 100%;
   object-fit: cover;
   opacity: .5
@@ -687,10 +687,88 @@ footer #social span {
 .cartImg {
   transition: 1s ease;
 }
+button:hover .cartImg {
+  padding-right: 10%;
+  opacity: 0;
+}
 .event_card_more button img {
   margin-right: 10px;
   position: relative;
   top: 2px;
+}
+
+/* -------------- All events page ------------- */
+
+.bannerImg {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  object-position: bottom;
+  opacity: .8;
+}
+#bannerText {
+  text-align: center;
+  color: white;
+  position: relative;
+  margin-top: -150px
+}
+
+.featuredSearch {
+  width: 100%;
+  height: 80px;
+  background-color: #e25757;
+  margin-top: 20px;
+  display: flex;
+  padding: 15px;
+  justify-content: center;
+}
+.featuredSearch input {
+  width: 50%;
+  background: white;
+  color: #333;
+  border: none;
+  font-family: 'lemonmilkbold';
+  padding: 10px;
+  font-size: 200%;
+  text-align: center;
+}
+.featuredSearch input::placeholder {
+  color: #cbcbcb;
+  font-family: 'Montserrat', sans-serif;
+}
+.featuredSearch input:nth-child(2) {
+  width: 50px;
+  background-image: url(icons/iconmonstr-magnifier-1-24.png);
+  background-repeat:no-repeat;
+  background-position: center;
+  background-color: #333;
+  cursor: pointer;
+  text-indent: -99999px;
+}
+
+#viewMore {
+  padding: 10px;
+  padding-bottom: 15px;
+  width: 200px;
+  font-size: 100%;
+  background: #e25757;
+  border: none;
+  color: white;
+  margin-left: 50%;
+  position: relative;
+  left: -100px;
+  letter-spacing: 5px;
+  margin-bottom: 50px;
+  transition: .3s ease;
+  cursor: pointer;
+}
+#viewMore:hover img  {
+  padding-left: 10px;
+}
+#viewMore img {
+  position: relative;
+  top: 5px;
+  transition: .3s ease;
 }
 
 /* -------------- Media Query ------------- */
@@ -834,5 +912,12 @@ footer #social span {
   }
   .event_card_more .right {
     margin-top: 40px;
+  }
+  .featuredSearch {
+    margin-top: 70px;
+    margin-bottom: -40px;
+  }
+  #searchBox {
+   width: 90%;
   }
 }
