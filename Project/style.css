@@ -20,7 +20,9 @@ p {
   font-family: 'Montserrat', sans-serif;
 }
 h2 {
-  font-family: 'lemonmilkbold';
+  font-family: 'lemonmilkbold', 'Heebo';
+  font-weight: bolder;
+  text-transform: uppercase;
   letter-spacing: 2px;
   color: white;
 }
@@ -28,7 +30,9 @@ h2 {
   font-size: 200%;
 }
 h3 {
-  font-family: 'lemonmilkbold';
+  font-family: 'lemonmilkbold', 'Heebo';
+  font-weight: bolder;
+  text-transform: uppercase;
   letter-spacing: 2px;
   font-size: 200%;
 }
@@ -114,7 +118,9 @@ header {
 /* ------------- Navigation ------------- */
 
 nav {
-  font-family: 'lemonmilkbold';
+  font-family: 'lemonmilkbold', 'Heebo';
+  font-weight: bolder;
+  text-transform: uppercase;
 }
 nav ul {
   list-style-type: none;
@@ -419,11 +425,15 @@ check {  50% {
   width: 24px;
 }
 #callUs p {
-  font-family: 'lemonmilkbold';
+  font-family: 'lemonmilkbold', 'Heebo';
+  font-weight: bolder;
+  text-transform: uppercase;
   letter-spacing: 3px;
 }
 #callUs i {
-  font-family: 'lemonmilkbold';
+  font-family: 'lemonmilkbold', 'Heebo';
+  font-weight: bolder;
+  text-transform: uppercase;
   letter-spacing: 2px;
   padding-left: 10px;
 }
@@ -491,6 +501,7 @@ check {  50% {
   margin: 10px;
   background: #333;
   background-size: cover;
+  max-height: 600px;
 }
 .event a{
   color: white;
@@ -671,7 +682,9 @@ footer #social span {
   margin-bottom: 20px;
 }
 .event_card_more button {
-  font-family: 'lemonmilkbold';
+  font-family: 'lemonmilkbold', 'Heebo';
+  font-weight: bolder;
+  text-transform: uppercase;
   letter-spacing: 2px;
   font-size: 150%;
   margin-top: 20px;
@@ -727,7 +740,9 @@ button:hover .cartImg {
   background: white;
   color: #333;
   border: none;
-  font-family: 'lemonmilkbold';
+  font-family: 'lemonmilkbold', 'Heebo';
+  text-transform: uppercase;
+  font-weight: bolder;
   padding: 10px;
   font-size: 200%;
   text-align: center;
@@ -801,7 +816,9 @@ button:hover .cartImg {
   line-height: 1.5;
 }
 .blogArea h1{
-  font-family: 'lemonmilkbold';
+  font-family: 'lemonmilkbold', 'Heebo';
+  font-weight: bolder;
+  text-transform: uppercase;
   margin-bottom: 15px;
   font-size: 200%;
   display: inline-block;
