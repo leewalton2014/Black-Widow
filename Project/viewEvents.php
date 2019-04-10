@@ -2,10 +2,23 @@
 //link to functions script
 require_once('functions.php');
 echo startPage();
+echo "<img id='logo' src='Images/logo.png'/>
+  <img class='bannerImg' src='Images/slider.jpg'/>
+
+  <article id='featured'>
+      <div id='bannerText'>
+        <p id='tagline'>Upcoming Events and Gigs</p>
+        <h3>Featured Events</h3>
+      </div>
+
+      <div class='featuredSearch'>
+        <input placeholder='Search...'' id='searchBox' type='search'/>
+        <input id='searchSubmit' type='submit'/>
+      </div>";
+echo "<div id='eventWrap'>";
+
     try{
-
         $dbConn = getConnection();
-
         //Query to retrieve events
         $sqlEvents = "SELECT eventID, eventTitle, eventDescription, eventDate, eventTime, eventType, stageNumber, stageCapacity, ticketPrice, imgRef
                       FROM aa_events
@@ -16,24 +29,20 @@ echo startPage();
 
         while ($rowObj = $queryEventsResult->fetchObject()){
           //Display Event info
-          echo "<div class='event_card'>\n";
-          echo "<div class='eventTitle'><p>{$rowObj->eventTitle}</p></div>\n";
-          echo "<div class='eventDescription'><p>{$rowObj->eventDescription}</p></div>\n";
-          echo "<div class='eventDate'><p>Date: {$rowObj->eventDate}</p></div>\n";
-          echo "<div class='eventTime'><p>Time: {$rowObj->eventTime}</p></div>\n";
-          echo "<div class='eventType'><p>Event Type:{$rowObj->eventType}</p></div>\n";
-          echo "<div class='stageNumber'><p>Stage Number: {$rowObj->stageNumber}</p></div>\n";
-          echo "<div class='stageCapacity'><p>Tickets Available: {$rowObj->stageCapacity}</p></div>\n";
-          echo "<div class='ticketPrice'><p>Price: {$rowObj->ticketPrice}</p></div>\n";
-          echo "<div class='imgRef'><img src='Event_IMG/{$rowObj->imgRef}'></div>\n";
-          echo "<a class='button' href='editEventForm.php?eventID={$rowObj->eventID}'>Edit event details</a>\n";
-          echo "<a class='button' href='viewEvent.php?eventID={$rowObj->eventID}'>View Event Page</a>\n";
-          echo "</div>\n";
+          echo "<section class='event' style='background-image: url(Event_IMG/{$rowObj->imgRef})'>\n";
+          echo "<a href='viewEvent.php?eventID={$rowObj->eventID}'>";
+          echo "<p>{$rowObj->eventTitle}</p>";
+          echo "<p>{$rowObj->eventDate}</p><br/>";
+          echo "<i>{$rowObj->eventDescription}</i>";
+          echo "</a>";
+          echo "</section>\n";
         }//end while
     }//end try
     catch (Exception $e){
         echo "<p>Query failed: ".$e->getMessage()."</p>\n";
       }//end catch
+echo "</div>";
+echo "</article>";
 
 echo endPage();
 ?>

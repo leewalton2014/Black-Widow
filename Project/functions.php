@@ -72,11 +72,12 @@ function startPage(){
                 <li><a href='viewEvents.php'><img src='icons/round-event_note-24px.svg'/>View Events</a></li>
                 <li><a href=''><img src='icons/t-shirt-black-silhouette.svg'/>Merchandice</a></li>
                 <li><a href=''><img src='icons/round-format_align_left-24px.svg'/>News</a></li>
-                <li class='active'><a href='index.html'><img src='icons/baseline-home-24px.svg'/>Home</a></li>
+                <li class='active'><a href='index.php'><img src='icons/baseline-home-24px.svg'/>Home</a></li>
               </ul>
             </nav>
 
-          </header>";
+          </header>
+          <main>";
   return $content;
 }
 //Page end
