@@ -1,6 +1,7 @@
 <?php
 //link to functions script
 require_once('functions.php');
+echo startPage();
     try{
 
         $dbConn = getConnection();
@@ -33,4 +34,6 @@ require_once('functions.php');
     catch (Exception $e){
         echo "<p>Query failed: ".$e->getMessage()."</p>\n";
       }//end catch
+
+echo endPage();
 ?>
