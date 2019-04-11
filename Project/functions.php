@@ -38,6 +38,7 @@ function startPage(){
       <meta name='description' content=''>
       <meta name='viewport' content='width=device-width, initial-scale=1.0'>
       <!-- CSS -->
+      <link rel='icon' href='/Images/loadingLogo.png'>
       <link rel='stylesheet' href='style.css'>
       <link href='fonts.googleapis.com/css?family=Heebo:800|Montserrat' rel='stylesheet'>
 
@@ -70,6 +71,7 @@ function startPage(){
               <ul>
                 <li><a href=''><img src='icons/round-supervised_user_circle-24px.svg'/>About</a></li>
                 <li><a href='viewEvents.php'><img src='icons/round-event_note-24px.svg'/>View Events</a></li>
+                <li><a href='viewCart.php'><img src='icons/round-event_note-24px.svg'/>Shopping Cart</a></li>
                 <li><a href=''><img src='icons/t-shirt-black-silhouette.svg'/>Merchandice</a></li>
                 <li><a href=''><img src='icons/round-format_align_left-24px.svg'/>News</a></li>
                 <li class='active'><a href='index.php'><img src='icons/baseline-home-24px.svg'/>Home</a></li>
@@ -99,10 +101,11 @@ function endPage(){
                   <div id='footerNav'>
   				  <ul>
                       <li><a href=''>About</a></li>
-                      <li><a href=''>View Events</a></li>
+                      <li><a href='viewEvents.php'>View Events</a></li>
                       <li><a href=''>Merchandice</a></li>
                       <li><a href=''>News</a></li>
-                      <li class='active'><a href=''>Home</a></li>
+                      <li class='active'><a href='index.php'>Home</a></li>
+                      <li><a href='adminLogin.php'>Admin Login</a></li>
                     </ul>
                   </div>
               </footer>

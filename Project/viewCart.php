@@ -1,6 +1,13 @@
 <?php
 //link to functions script
 require_once('functions.php');
+echo startPage();
+echo "<img id='logo' src='Images/logo.png'/>
+  <img class='bannerImg' src='Images/slider.jpg'/>
+      <div id='bannerText'>
+        <p id='tagline'>Review your items and checkout</p>
+        <h3>Your Shopping Cart</h3>
+      </div>";
     try{
 
         $dbConn = getConnection();
@@ -35,4 +42,5 @@ require_once('functions.php');
     catch (Exception $e){
         echo "<p>Query failed: ".$e->getMessage()."</p>\n";
       }//end catch
+echo endPage();
 ?>

@@ -1,7 +1,14 @@
 <?php
 //link to functions script
 require_once('functions.php');
-
+echo startPage();
+echo "<img id='logo' src='Images/logo.png'/>
+  <img class='bannerImg' src='Images/slider.jpg'/>
+      <div id='bannerText'>
+        <p id='tagline'>Provide details of a new event, ensure all fields are populated.</p>
+        <h3>Add an Event</h3>
+      </div>";
+echo "<article id='eventFRM'>";
 //if user is logged in then display update form
 //if (isset($_SESSION['logged-in']) && $_SESSION['logged-in']){//Session active
     try{
@@ -54,4 +61,6 @@ require_once('functions.php');
     //echo "<h2>Access Denied!</h2>\n
             //<p>Login to view record list and/or edit details for records.</p>\n";
 //}//end else
+echo "</article>";
+echo endPage();
 ?>
