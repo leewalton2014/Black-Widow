@@ -697,10 +697,10 @@ footer #social span {
   background: #5fcc7c;
   cursor: pointer;
 }
-.cartImg {
+.cartIcon {
   transition: 1s ease;
 }
-button:hover .cartImg {
+button:hover .cartIcon {
   padding-right: 10%;
   opacity: 0;
 }
@@ -796,11 +796,18 @@ button:hover .cartImg {
 .parent {
   display: flex;
   margin-top: 40px;
+  align-items: flex-start;
 }
 .blogList {
   max-width: 30%;
   min-width: 260px;
   padding: 15px;
+}
+#sticky {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 5px;
+  height: auto;
 }
 .blogList h2 {
   margin-bottom: 10px;
@@ -879,6 +886,97 @@ button:hover .cartImg {
   border-left: 5px solid #e25757;
   margin-bottom: 10px;
   padding-left: 20px;
+}
+
+/* -------------- Cart Page ------------- */
+
+.cart {
+  flex: 1;
+  padding: 15px;
+  margin-right: 20px;
+  background-color: white;
+}
+.cartInfo {
+  width: 40%;
+}
+.cartRemove{
+  display: block;
+  padding-top: 10px;
+  text-decoration: underline;
+  cursor: pointer;
+}
+.cartRemove img {
+  padding: 5px;
+  position: relative;
+  top: 10px;
+}
+.cartImg {
+  width: 60%;
+  height: 200px;
+  object-fit: cover;
+}
+.cartItem {
+  margin-bottom: 10px;
+  margin-top: 10px;
+  border-left: 5px solid #e25757;
+  padding: 10px;
+  display: flex;
+}
+.cartItem h2 {
+  color: black;
+}
+.cartQuantity {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding: 5px;
+  width: 50px;
+  display: inline-block;
+}
+.cartLabel {
+  display: inline-block;
+}
+.updateQuantity {
+  padding: 7px;
+  margin: 0;
+  background: #e25757;
+  color: white;
+  border: none;
+}
+.checkout {
+  min-width: 30vw;
+  padding: 10px;
+  background: #e25757;
+}
+.checkoutPrice {
+  background: #cb4e4e;
+  padding: 5px;
+  display: block;
+  color: white;
+  letter-spacing: 5px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+#checkoutBtn {
+  font-family: 'lemonmilkbold', 'Heebo';
+  font-weight: bolder;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 150%;
+  margin-top: 20px;
+  background: #ffffff;
+  width: 100%;
+  border: none;
+  transition: .3s ease;
+  padding: 5px;
+}
+#checkoutBtn:hover {
+  background: #5fcc7c;
+  cursor: pointer;
+}
+#checkoutBtn img {
+  position: relative;
+  top: 3px;
+  margin-right: 10px;
 }
 
 
@@ -1034,7 +1132,6 @@ button:hover .cartImg {
   .parent {
     margin-top: 90px;
     display: block;
-    
   }
   .blogWrap {
     margin-right: 0;
