@@ -94,7 +94,7 @@ function endPage(){
                     <img alt='youtube' src='icons/iconmonstr-youtube-4-48.png'/>
                     <img alt='twitter' src='icons/iconmonstr-twitter-4-48.png'/>
                   </div>
-                  <div >
+                  <div>
                     <img id='footerLogo' alt='Avengers Arena with logo' src='Images/logo_80x260.png'/>
                     <i>Copyright &copy; Avengers Arena</i>
                   </div>

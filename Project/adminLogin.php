@@ -8,7 +8,7 @@ echo "<img id='logo' src='Images/logo.png'/>
         <p id='tagline'>Login to modify events and manage site - For use by staff</p>
         <h3>Login to admin dashboard</h3>
       </div>";
-echo "<article id='adminLogin'>";
+echo "<div class='parent'>";
 //if user is logged in then display update form
 //if (isset($_SESSION['logged-in']) && $_SESSION['logged-in']){//Session active
             echo "<form action='admin.php' method='POST' enctype='multipart/form-data' id='adminLogin'>\n";
@@ -22,6 +22,6 @@ echo "<article id='adminLogin'>";
     //echo "<h2>Access Denied!</h2>\n
             //<p>Login to view record list and/or edit details for records.</p>\n";
 //}//end else
-echo "</article>";
+echo "</div>";
 echo endPage();
 ?>
