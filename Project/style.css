@@ -979,7 +979,41 @@ button:hover .cartIcon {
   margin-right: 10px;
 }
 
-
+/* -------------- Merchandice Page ------------- */
+.merch {
+  width: 60%;
+}
+.merchList {
+  max-width: 30%;
+  min-width: 260px;
+  padding: 15px;
+}
+.merchList h2 {
+  margin-bottom: 10px;
+  display: block;
+}
+.merchCatagory {
+  margin-bottom: 40px;
+}
+.merch h1 {
+  width: 100%;
+}
+.merchItem img {
+  width: 100%;
+}
+.merchItem {
+  max-width:  30%;
+  min-width: 200px;
+  padding: 10px;
+  display: inline-block;
+}
+.merch h1 {
+  font-size: 200%;
+  font-family: 'lemonmilkbold', 'Heebo';
+  font-weight: bolder;
+  text-transform: uppercase;
+  padding-bottom: 20px;
+}
 /* -------------- Media Query ------------- */
 
 @media only screen and (min-width: 768px) {
