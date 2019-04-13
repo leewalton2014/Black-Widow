@@ -2,22 +2,24 @@
 //link to functions script
 require_once('functions.php');
 echo startPage();
+$searchTerm = filter_has_var(INPUT_GET, 'searchBox') ? $_GET['searchBox'] : null;
+$searchTerm = trim($searchTerm);
 echo "<img id='logo' src='Images/logo.png'/>
   <img class='bannerImg' src='Images/slider.jpg'/>
 
   <article id='featured'>
       <div id='bannerText'>
-        <p id='tagline'>Upcoming Events and Gigs</p>
-        <h3>Featured Events</h3>
+        <p id='tagline'>Results for ... '$searchTerm'</p>
+        <h3>Events</h3>
       </div>
       <div class='featuredSearch'>
         <form action='searchResult.php' method='GET' enctype='multipart/form-data' id='searchEvents'>
-        <input type='text' placeholder='Search' id='searchBox' name='searchBox'/>
+        <input type='text' placeholder='$searchTerm' id='searchBox' name='searchBox'/>
         <input id='searchSubmit' type='submit'/>
         </form>
       </div>";
+echo "<a href='viewEvents.php'>Return to all events</a>";      
 echo "<div id='eventWrap'>";
-
     try{
         $dbConn = getConnection();
         //Query to retrieve events
@@ -25,7 +27,7 @@ echo "<div id='eventWrap'>";
                       FROM aa_events
                       INNER JOIN aa_event_type ON aa_events.typeID = aa_event_type.typeID
                       INNER JOIN aa_event_stage ON aa_events.stageID = aa_event_stage.stageID
-                      ORDER BY eventTitle";
+                      WHERE eventTitle LIKE '%$searchTerm%'";
         $queryEventsResult = $dbConn->query($sqlEvents);
 
         while ($rowObj = $queryEventsResult->fetchObject()){
