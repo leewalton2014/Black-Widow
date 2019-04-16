@@ -1,11 +1,11 @@
 @font-face {
     font-family: 'lemonmilkbold';
-    src: url("lemonMilk.otf") format("opentype");
-    src: url("lemonMilk.eot"); /* IE9 Compat Modes */
-    src: url("lemonMilk.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
-         url("lemonMilk.woff") format("woff"), /* Modern Browsers */
-         url("lemonMilk.ttf")  format("truetype"), /* Safari, Android, iOS */
-         url("lemonMilk.svg#LemonMilk") format("svg"); /* Legacy iOS */
+    src: url("LemonMilk.otf") format("opentype");
+    src: url("LemonMilk.eot"); /* IE9 Compat Modes */
+    src: url("LemonMilk.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
+         url("LemonMilk.woff") format("woff"), /* Modern Browsers */
+         url("LemonMilk.ttf")  format("truetype"), /* Safari, Android, iOS */
+         url("LemonMilk.svg#LemonMilk") format("svg"); /* Legacy iOS */
 }
 
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, acronym, address, big, cite, code, del, dfn, em, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
@@ -156,7 +156,7 @@ nav img {
   padding: 20px;
   z-index: 999;
   display: none;
-  
+
 }
 #menuBtn:checked ~ nav {
   display: block;
@@ -249,12 +249,12 @@ nav img {
 }
 
 @-webkit-keyframes animatebottom {
-  from { top:-100px; opacity:0 } 
+  from { top:-100px; opacity:0 }
   to { top:0px; opacity:1 }
 }
 
-@keyframes animatebottom { 
-  from{ top:-100px; opacity:0 } 
+@keyframes animatebottom {
+  from{ top:-100px; opacity:0 }
   to{ top:0; opacity:1 }
 }
 
@@ -370,7 +370,7 @@ nav img {
   -webkit-box-pack: center;
   -webkit-justify-content: center;
   -ms-flex-pack: center;
-  justify-content: center;  
+  justify-content: center;
   background-color: #437bac;
   background-image:url(Images/slider.jpg);
   background-size: cover;
@@ -390,7 +390,7 @@ nav img {
   max-width: 300px;
   text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
 }
- @-webkit-keyframes 
+ @-webkit-keyframes
 check {  50% {
  outline-color: #333;
  box-shadow: 0 0 0 12px #333, 0 0 0 36px rgba(51, 51, 51, 0.2);
@@ -400,7 +400,7 @@ check {  50% {
  box-shadow: 0 0 0 0 #333, 0 0 0 0 rgba(51, 51, 51, 0);
 }
 }
- @keyframes 
+ @keyframes
 check {  50% {
  outline-color: #333;
  box-shadow: 0 0 0 12px #333, 0 0 0 36px rgba(51, 51, 51, 0.2);
@@ -418,7 +418,7 @@ check {  50% {
   padding: 20px;
   color: white;
   background-color: #e25757;
-  
+
 }
 #callUs img {
   height: 24px;
@@ -516,8 +516,8 @@ check {  50% {
   border-radius: 50vh / 10vh;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
-  transition: all 0.3s ease 0s; 
-  -webkit-transition: all 0.3s ease 0s; 
+  transition: all 0.3s ease 0s;
+  -webkit-transition: all 0.3s ease 0s;
   opacity: 1;
 }
 .event a:hover{
@@ -615,7 +615,7 @@ footer #social span {
 }
 
 /* -------------- Event Page ------------- */
- 
+
 .event_card .imgRef {
   height: 260px;
   width: 100%;
@@ -1096,7 +1096,7 @@ button:hover .cartIcon {
 
 @media only screen and (max-width: 767px) and (orientation: portrait) {
   /* portrait phones */
-  
+
   nav {
     background: #568cbb;
     height: 100vh;
@@ -1133,14 +1133,14 @@ button:hover .cartIcon {
     background: none;
   }
   #menuBtn {display: none;}
-  #menuBtn + label{display:inline-block;}  
+  #menuBtn + label{display:inline-block;}
   #menuBtn:checked + label{display:inline-block;}
-  
+
   .slider {
     height: 65vh;
     min-height: 500px;
   }
-  
+
   #callUs p {
     display: none;
   }
@@ -1151,14 +1151,14 @@ button:hover .cartIcon {
   #callUs i::before {
     content: "Book Now ";
   }
-  
+
   #welcome div {
     display: none;
   }
   #welcome{
     padding: 20px 10px;
   }
-  
+
   #featured {
     padding-bottom: 0;
   }
@@ -1193,12 +1193,12 @@ button:hover .cartIcon {
   position: relative;
   top: 0px;
 }
-  
+
   footer {
     display: block;
     padding-bottom: 40px;
     margin-bottom: 10px;
-    
+
   }
   footer div{
     flex: none;
