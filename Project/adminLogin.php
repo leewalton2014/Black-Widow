@@ -5,6 +5,7 @@ startHTML('Admin Login', 'Login to manage events');
 pageHeader('Login');
 titleBanner('Login to admin Dashboard', 'Login to manage events and view sales');
 echo "<div class='logIn'>
+  <form action='adLoginProcess.php' method='POST' id='adminLogin'>
   <h1>Log in</h1>
   <div class='parent, logInParent' >
     <img src='icons/iconmonstr-user-1-24.png'/>
@@ -19,6 +20,7 @@ echo "<div class='logIn'>
     <img src='icons/iconmonstr-user-8-24.png'/>
     <a>Register Account</a>
   </div>
+  </form>
 </div>";
 //if user is logged in then display update form
 //if (isset($_SESSION['logged-in']) && $_SESSION['logged-in']){//Session active

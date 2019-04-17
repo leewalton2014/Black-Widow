@@ -26,13 +26,13 @@ echo "<section class='cart'>";
         $queryResult = $dbConn->query($getCart);
         while ($rowObj = $queryResult->fetchObject()) {
             echo "<div class='cartItem'>\n";
-            echo "<form action='updateAmount.php' method='get' id='{$rowObj->eventID}'>\n";
+            echo "<form action='updateQuantity.php' method='POST' id='{$rowObj->eventID}'>\n";
             echo "<input type='hidden' name='cartItemID' value='{$rowObj->cartItemID}' id='cartItemID'/>\n";
             echo "<div class='cartInfo'>\n";
             echo "<h2 class='cartTitle'><a href='viewEvent.php?eventID={$rowObj->eventID}'>{$rowObj->eventTitle}</a></h2>\n";
             echo "<p class='cartPrice'>£{$rowObj->ticketPrice}</p>\n";
             echo "<p class='cartLabel'>Quantity: </p>\n";
-            echo "<input type='number' class='cartQuantity' value='{$rowObj->cartItemQuantity}'/>\n";
+            echo "<input type='number' name='itemQuantity' class='cartQuantity' value='{$rowObj->cartItemQuantity}'/>\n";
             echo "<input type='submit' class='updateQuantity'/>\n";
             echo "</form>";
             echo "<a class='cartRemove' href='removeItem.php?cartItemID={$rowObj->cartItemID}'><img src='icons/iconmonstr-trash-can-1-24.png'/>Remove Item</a>\n";
