@@ -41,6 +41,23 @@ echo "<section class='cart'>";
             echo "</div>\n";
         }//end while
         echo "<a href='clearBasket.php'><p>Empty Basket</p></a>\n";
+
+        //Checkout form
+        echo "<form action='https://www.sandbox.paypal.com/cgi-bin/webscr' method='post' target='_top' id='cart' name='cart'>
+                <input type='hidden' name='business' value='lwaltondev@gmail.com'>
+                <input type='hidden' name='cmd' value='_cart'>
+                <input type='hidden' name='currency_code' value='GBP'>
+                <input type='hidden' name='upload' value='1'>\n";
+        $itemNo = 0;
+        $queryResult = $dbConn->query($getCart);
+        while ($rowObj = $queryResult->fetchObject()) {
+            //Paypal checkout item declarations
+            $itemNo = $itemNo + 1;
+            echo "<input type='hidden' name='item_name_$itemNo' id='item_name_$itemNo' value='{$rowObj->eventTitle}'/>\n";
+            echo "<input type='hidden' name='quantity_$itemNo' id='quantity_$itemNo' value='{$rowObj->cartItemQuantity}'/>\n";
+            echo "<input type='hidden' name='amount_$itemNo' id='amount_$itemNo' value='{$rowObj->ticketPrice}'/>\n";
+        }//end while
+        echo "</form>";
     }//end try
     catch (Exception $e){
         echo "<p>Query failed: ".$e->getMessage()."</p>\n";
@@ -49,7 +66,7 @@ echo "</section>";
 echo "<aside class='checkout' id='sticky'>";
 echo "<h2>Checkout</h2>";
 echo "<p class='checkoutPrice'>Total :  £20.00</p>";
-echo "<button id='checkoutBtn'><img src='icons/iconmonstr-debit-6-24.png'/>Go to Checkout</button>";
+echo "<button type='submit' form='cart' id='checkoutBtn'><img src='icons/iconmonstr-debit-6-24.png'/>Go to Checkout</button>";
 echo "</aside>";
 echo "</div>";
 echo "</article>";

@@ -15,7 +15,7 @@ try {
     //UPDATE query
     $updateQuantity = "UPDATE aa_cart
     SET cartItemQuantity = '$itemQuantity'
-    WHERE custID = '$username'";
+    WHERE custID = '$username' AND cartItemID = '$cartItemID'";
     //execute query
     $queryResult = $dbConn->query($updateQuantity);
 
