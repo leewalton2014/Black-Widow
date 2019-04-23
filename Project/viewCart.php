@@ -27,7 +27,7 @@ echo "<section class='cart'>";
 
         $queryResult = $dbConn->query($getCart);
         while ($rowObj = $queryResult->fetchObject()) {
-            $ItemTotal = {$rowObj->cartItemQuantity} * {$rowObj->ticketPrice};
+            $ItemTotal = "{$rowObj->cartItemQuantity}" * "{$rowObj->ticketPrice}";
             $TotalPrice = $TotalPrice + $ItemTotal;
             echo "<div class='cartItem'>\n";
             echo "<form action='updateQuantity.php' method='POST' id='{$rowObj->eventID}'>\n";
@@ -47,11 +47,16 @@ echo "<section class='cart'>";
         echo "<a href='clearBasket.php'><p>Empty Basket</p></a>\n";
 
         //Checkout form
+        $ReturnURL = "http://unn-w17007224.newnumyspace.co.uk/SEPractise/Testing/t1/paymentSuccess.php";
+        $CancelURL = "http://unn-w17007224.newnumyspace.co.uk/SEPractise/Testing/t1/viewCart.php";
         echo "<form action='https://www.sandbox.paypal.com/cgi-bin/webscr' method='post' target='_top' id='cart' name='cart'>
                 <input type='hidden' name='business' value='lwaltondev@gmail.com'>
                 <input type='hidden' name='cmd' value='_cart'>
                 <input type='hidden' name='currency_code' value='GBP'>
-                <input type='hidden' name='upload' value='1'>\n";
+                <input type='hidden' name='return' value='$ReturnURL'>
+                <input type='hidden' name='cancel_return' value='$CancelURL'>
+                <input type='hidden' name='rm' value='1'>
+                <input type='hidden' name='upload' value='2'>\n";
         $itemNo = 0;
         $queryResult = $dbConn->query($getCart);
         while ($rowObj = $queryResult->fetchObject()) {
