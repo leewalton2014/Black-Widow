@@ -23,8 +23,12 @@ echo "<section class='cart'>";
         INNER JOIN aa_events ON aa_cart.eventID = aa_events.eventID
         WHERE custID = '$username'";
 
+        $TotalPrice = 0;
+
         $queryResult = $dbConn->query($getCart);
         while ($rowObj = $queryResult->fetchObject()) {
+            $ItemTotal = {$rowObj->cartItemQuantity} * {$rowObj->ticketPrice};
+            $TotalPrice = $TotalPrice + $ItemTotal;
             echo "<div class='cartItem'>\n";
             echo "<form action='updateQuantity.php' method='POST' id='{$rowObj->eventID}'>\n";
             echo "<input type='hidden' name='cartItemID' value='{$rowObj->cartItemID}' id='cartItemID'/>\n";
@@ -65,7 +69,7 @@ echo "<section class='cart'>";
 echo "</section>";
 echo "<aside class='checkout' id='sticky'>";
 echo "<h2>Checkout</h2>";
-echo "<p class='checkoutPrice'>Total :  £20.00</p>";
+echo "<p class='checkoutPrice'>Total :  £$TotalPrice</p>";
 echo "<button type='submit' form='cart' id='checkoutBtn'><img src='icons/iconmonstr-debit-6-24.png'/>Go to Checkout</button>";
 echo "</aside>";
 echo "</div>";
