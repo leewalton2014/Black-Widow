@@ -208,7 +208,7 @@ function endPage(){
                       <li><a href=''>Merchandice</a></li>
                       <li><a href=''>News</a></li>
                       <li class='active'><a href='index.php'>Home</a></li>
-                      <li><a href='adminLogin.php'>Admin Login</a></li>
+                      <li><a href='adminDash.php'>Admin Dashboard</a></li>
                     </ul>
                   </div>
               </footer>

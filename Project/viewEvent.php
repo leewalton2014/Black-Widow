@@ -16,7 +16,7 @@ echo "<img id='logo' src='Images/logo.png'/>";
         while ($rowObj = $queryEventResult->fetchObject()){
           //Display Event info
           echo "<div class='event_card'>
-            <img class='imgRef' src='Event_IMG/{$rowObj->imgRef}'/>
+            <img class='imgRef' src='Event_IMG/{$rowObj->imgRef}' alt='Images/event.png'/>
             <h2 class='eventTitle'>{$rowObj->eventTitle}</h2>
             <span class='eventDate'><img class='eventIcon' src='icons/iconmonstr-calendar-4-24.png'/>{$rowObj->eventDate}</span>
             <span class='eventTime'><img class='eventIcon' src='icons/iconmonstr-time-1-24.png'/>{$rowObj->eventTime}</span>
