@@ -28,6 +28,109 @@ function cartItemCounter(){
     $count = exec($countSQL);
     return $count;
 }
+//Page Sections
+//Navigation
+function pageHeader($currentPage){
+  $nav = "<header>\n";
+  //Responsive Dropdown Navigation
+  $nav .= "<img id='responsiveLogo' src='Images/mobileLogo.png'/>\n";
+  $nav .= "<input type='checkbox' id='menuBtn' alt='menu button'/>\n";
+  $nav .= "<label for='menuBtn'></label>\n";
+  //Navbar Links
+  $nav .= "<a href='' id='logIn'>\n";
+  $nav .= "<img alt='log in' src='icons/iconmonstr-log-out-13-24.png'/>\n";
+  $nav .= "<h2>Log in</h2>\n";
+  $nav .= "</a>\n";
+  $nav .= "<nav id='nav'>\n";
+  $nav .= "<ul>\n";
+  //if nav link is current page then apply active styling to current nav tab
+  //else display origional formatting
+  if($currentPage == "About"){
+    $nav .= "<li class='active'><a href=''><img src='icons/round-supervised_user_circle-24px.svg'/>About</a></li>\n";
+  }
+  else{
+    $nav .= "<li><a href=''><img src='icons/round-supervised_user_circle-24px.svg'/>About</a></li>\n";
+  }
+  if($currentPage == "View Events"){
+    $nav .= "<li class='active'><a href='viewEvents.php'><img src='icons/round-event_note-24px.svg'/>View Events</a></li>\n";
+  }
+  else{
+    $nav .= "<li><a href='viewEvents.php'><img src='icons/round-event_note-24px.svg'/>View Events</a></li>\n";
+  }
+  if($currentPage == "Shopping Cart"){
+    $nav .= "<li class='active'><a href='viewCart.php'><img src='icons/round-event_note-24px.svg'/>Shopping Cart</a></li>\n";
+  }
+  else{
+    $nav .= "<li><a href='viewCart.php'><img src='icons/round-event_note-24px.svg'/>Shopping Cart</a></li>\n";
+  }
+  if($currentPage == "Merchandice"){
+    $nav .= "<li class='active'><a href=''><img src='icons/t-shirt-black-silhouette.svg'/>Merchandice</a></li>\n";
+  }
+  else{
+    $nav .= "<li><a href=''><img src='icons/t-shirt-black-silhouette.svg'/>Merchandice</a></li>\n";
+  }
+  if($currentPage == "News"){
+    $nav .= "<li class='active'><a href=''><img src='icons/round-format_align_left-24px.svg'/>News</a></li>\n";
+  }
+  else{
+    $nav .= "<li><a href=''><img src='icons/round-format_align_left-24px.svg'/>News</a></li>\n";
+  }
+  if($currentPage == "Home"){
+    $nav .= "<li class='active'><a href='index.php'><img src='icons/baseline-home-24px.svg'/>Home</a></li>\n";
+  }
+  else{
+    $nav .= "<li><a href='index.php'><img src='icons/baseline-home-24px.svg'/>Home</a></li>\n";
+  }
+  //End list, close nav and header
+  $nav .= "</ul>\n";
+  $nav .= "</nav>\n";
+  $nav .= "</header>\n";
+
+  echo $nav;
+}
+function startHTML($title, $description){
+  $content = <<< startHTML
+  <!doctype html>
+  <html lang='en'>
+  <head>
+      <meta charset='utf-8'>
+      <title>$title</title>
+      <meta name='description' content='$description'>
+      <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+      <!-- CSS -->
+      <link rel='icon' href='/Images/loadingLogo.png'>
+      <link rel='stylesheet' href='style.css'>
+      <link href='https://fonts.googleapis.com/css?family=Heebo:800|Montserrat' rel='stylesheet'>
+
+  </head>
+  <body onload='loader()' style='margin:0;'>
+      <div id='loader'></div>
+      <div id='loaderBg'>
+        <img src='Images/loadingLogo.png'/>
+      </div>
+
+      <!-- Width of main content area -->
+      <div id='mainWrap'  style='display:none;' class='animate-bottom'>
+startHTML;
+  $content .= "\n";
+  echo $content;
+}
+//Title banner
+function titleBanner($title, $subtitle){
+  $banner = <<< BANNER
+  <main>
+    <img id="logo" src="Images/logo.png"/>
+      <img class="bannerImg" src="Images/slider.jpg"/>
+
+      <article id="featured">
+          <div id="bannerText">
+            <p id="tagline">$subtitle</p>
+            <h3>$title</h3>
+          </div>
+BANNER;
+  $banner .= "\n";
+  echo $banner;
+}
 //Page Start
 function startPage(){
   $content = "<!doctype html>
@@ -105,7 +208,7 @@ function endPage(){
                       <li><a href=''>Merchandice</a></li>
                       <li><a href=''>News</a></li>
                       <li class='active'><a href='index.php'>Home</a></li>
-                      <li><a href='adminLogin.php'>Admin Login</a></li>
+                      <li><a href='adminDash.php'>Admin Dashboard</a></li>
                     </ul>
                   </div>
               </footer>

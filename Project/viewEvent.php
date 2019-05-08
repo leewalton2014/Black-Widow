@@ -16,7 +16,7 @@ echo "<img id='logo' src='Images/logo.png'/>";
         while ($rowObj = $queryEventResult->fetchObject()){
           //Display Event info
           echo "<div class='event_card'>
-            <img class='imgRef' src='Event_IMG/{$rowObj->imgRef}'/>
+            <img class='imgRef' src='Event_IMG/{$rowObj->imgRef}' alt='Images/event.png'/>
             <h2 class='eventTitle'>{$rowObj->eventTitle}</h2>
             <span class='eventDate'><img class='eventIcon' src='icons/iconmonstr-calendar-4-24.png'/>{$rowObj->eventDate}</span>
             <span class='eventTime'><img class='eventIcon' src='icons/iconmonstr-time-1-24.png'/>{$rowObj->eventTime}</span>
@@ -28,7 +28,7 @@ echo "<img id='logo' src='Images/logo.png'/>";
               <span class='eventType'>Event Type: {$rowObj->eventType}</span>
               <span class='stageNumber'>Stage: {$rowObj->stageNumber}</span>
             </div>
-            <form action='addToCart.php' method='POST' id='addToCartFRM'>
+            <form action='addToCart.php' method='POST' id='addToCartFRM' name='addToCartFRM'>
             <input type='hidden' value='{$rowObj->eventID}' name='eventID' id='eventID'/>
             <div class='right'>
               <h2>Buy a ticket</h2>
@@ -36,7 +36,7 @@ echo "<img id='logo' src='Images/logo.png'/>";
               <p>Tickets Available!</p>
               <p>Quantity:</p>
               <input type='number' min='1' value='1' name='ticketQuantity' id='ticketQuantity'/>
-              <input class='cartImg' type='image' src='icons/iconmonstr-shopping-cart-3-24.png' alt='Add to Cart!'/>
+              <button type='submit' form='addToCartFRM'><img class='cartIcon' src='icons/iconmonstr-shopping-cart-3-24.png'/>Add to cart</button>
             </div>
             </form>
           </div>";

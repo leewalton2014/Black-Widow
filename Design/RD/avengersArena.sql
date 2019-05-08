@@ -10,7 +10,7 @@ CREATE TABLE IF NOT EXISTS 'aa_events' (
   'ticketPrice' decimal(4,2) default NULL,
   'imgRef' varchar(100) default NULL,
   PRIMARY KEY ('eventID')
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=100;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=100;`
 
 DROP TABLE IF EXISTS 'aa_event_type';
 CREATE TABLE IF NOT EXISTS 'aa_event_type' (
@@ -69,4 +69,42 @@ CREATE TABLE IF NOT EXISTS 'aa_cart' (
   'eventID' varchar(10) default NULL,
   'cartItemQuantity' varchar(6) default NULL,
   KEY 'cartItemID' ('cartItemID')
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=100;
+
+DROP TABLE IF EXISTS 'aa_blog';
+CREATE TABLE IF NOT EXISTS 'aa_blog' (
+  'postID' int(10) NOT NULL auto_increment,
+  'postTitle' varchar(255) default NULL,
+  'postBody' varchar(10000) default NULL,
+  'postDate' date default NULL,
+  KEY 'postID' ('postID')
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=100;
+
+DROP TABLE IF EXISTS 'aa_admins';
+CREATE TABLE IF NOT EXISTS 'aa_admins' (
+  'userID' int(10) NOT NULL auto_increment,
+  'username' varchar(255) default NULL,
+  'passwordHash' varchar(255) default NULL,
+  'forename' varchar(225) default NULL,
+  'surname' varchar(225) default NULL,
+  PRIMARY KEY 'userID' ('userID')
+  UNIQUE KEY 'username' ('username')    
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1;
+
+DROP TABLE IF EXISTS 'aa_customers';
+CREATE TABLE IF NOT EXISTS 'aa_customers' (
+  'postID' int(10) NOT NULL auto_increment,
+  'postTitle' varchar(255) default NULL,
+  'postBody' varchar(10000) default NULL,
+  'postDate' date default NULL,
+  KEY 'postID' ('postID')
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=100;
+
+DROP TABLE IF EXISTS 'aa_sales';
+CREATE TABLE IF NOT EXISTS 'aa_sales' (
+  'saleID' int(10) NOT NULL auto_increment,
+  'orderNumber' varchar(255) default NULL,
+  'postBody' varchar(10000) default NULL,
+  'postDate' date default NULL,
+  KEY 'saleID' ('saleID')
 ) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=100;

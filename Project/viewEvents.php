@@ -1,16 +1,10 @@
 <?php
 //link to functions script
 require_once('functions.php');
-echo startPage();
-echo "<img id='logo' src='Images/logo.png'/>
-  <img class='bannerImg' src='Images/slider.jpg'/>
-
-  <article id='featured'>
-      <div id='bannerText'>
-        <p id='tagline'>Upcoming Events and Gigs</p>
-        <h3>Featured Events</h3>
-      </div>
-      <div class='featuredSearch'>
+startHTML('Events', 'Our upcoming events');
+pageHeader('View Events');
+titleBanner('Whats on?', 'Upcoming events at the avengers arena');
+echo "<div class='featuredSearch'>
         <form action='searchResult.php' method='GET' enctype='multipart/form-data' id='searchEvents'>
         <input type='text' placeholder='Search' id='searchBox' name='searchBox'/>
         <input id='searchSubmit' type='submit'/>
@@ -44,6 +38,5 @@ echo "<div id='eventWrap'>";
       }//end catch
 echo "</div>";
 echo "</article>";
-
 echo endPage();
 ?>
