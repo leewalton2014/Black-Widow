@@ -18,7 +18,7 @@ echo "<img id='logo' src='Images/logo.png'/>
         <input id='searchSubmit' type='submit'/>
         </form>
       </div>";
-echo "<a href='viewEvents.php'>Return to all events</a>";      
+echo "<a href='viewEvents.php'>Return to all events</a>";
 echo "<div id='eventWrap'>";
     try{
         $dbConn = getConnection();
@@ -32,10 +32,12 @@ echo "<div id='eventWrap'>";
 
         while ($rowObj = $queryEventsResult->fetchObject()){
           //Display Event info
+          $eventDate = date_create("{$rowObj->eventDate}");
+          $date = date_format($eventDate, "d/m/y");
           echo "<section class='event' style='background-image: url(Event_IMG/{$rowObj->imgRef})'>\n";
           echo "<a href='viewEvent.php?eventID={$rowObj->eventID}'>";
           echo "<p>{$rowObj->eventTitle}</p>";
-          echo "<p>{$rowObj->eventDate}</p><br/>";
+          echo "<p>$date</p><br/>";
           echo "<i>{$rowObj->eventDescription}</i>";
           echo "</a>";
           echo "</section>\n";
