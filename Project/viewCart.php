@@ -1,14 +1,9 @@
 <?php
 //link to functions script
 require_once('functions.php');
-echo startPage();
-echo "<img id='logo' src='Images/logo.png'/>
-  <img class='bannerImg' src='Images/slider.jpg'/>
-    <article id='featured'>
-      <div id='bannerText'>
-        <p id='tagline'>Review your items and checkout</p>
-        <h3>Your Shopping Cart</h3>
-      </div>";
+startHTML('Cart', 'Review items and checkout');
+pageHeader('Shopping Cart');
+titleBanner('Your Shopping Cart', 'Review your items and checkout');
 echo "<div class='parent'>";
 echo "<section class='cart'>";
     try{

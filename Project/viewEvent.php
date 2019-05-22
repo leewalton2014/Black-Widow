@@ -1,7 +1,9 @@
 <?php
 //link to functions script
 require_once('functions.php');
-echo startPage();
+startHTML('Event view', 'Viewing event details');
+pageHeader('Event view');
+
 echo "<img id='logo' src='Images/logo.png'/>";
     try{
         $dbConn = getConnection();
