@@ -1,7 +1,8 @@
 <?php
 //link to functions script
 require_once('functions.php');
-echo startPage();
+startHTML('Home', 'Welcome to avengers arena!');
+pageHeader('Home');
 
 echo "<img id='logo' src='Images/logo.png'/>
   <div class='slider'>
