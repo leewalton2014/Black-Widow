@@ -69,11 +69,11 @@ function pageHeader($currentPage){
   else{
     $nav .= "<li><a href=''><img src='icons/t-shirt-black-silhouette.svg'/>Merchandice</a></li>\n";
   }
-  if($currentPage == "News"){
-    $nav .= "<li class='active'><a href=''><img src='icons/round-format_align_left-24px.svg'/>News</a></li>\n";
+  if($currentPage == "Blog"){
+    $nav .= "<li class='active'><a href='viewBlog.php'><img src='icons/round-format_align_left-24px.svg'/>Blog</a></li>\n";
   }
   else{
-    $nav .= "<li><a href=''><img src='icons/round-format_align_left-24px.svg'/>News</a></li>\n";
+    $nav .= "<li><a href='viewBlog.php'><img src='icons/round-format_align_left-24px.svg'/>Blog</a></li>\n";
   }
   if($currentPage == "Home"){
     $nav .= "<li class='active'><a href='index.php'><img src='icons/baseline-home-24px.svg'/>Home</a></li>\n";

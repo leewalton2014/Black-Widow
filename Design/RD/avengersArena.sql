@@ -89,6 +89,6 @@ CREATE TABLE IF NOT EXISTS `aa_admins` (
   `passwordHash` varchar(255) default NULL,
   `forename` varchar(225) default NULL,
   `surname` varchar(225) default NULL,
-  PRIMARY KEY (`adminID`)
+  PRIMARY KEY (`adminID`),
   UNIQUE KEY (`username`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=100;

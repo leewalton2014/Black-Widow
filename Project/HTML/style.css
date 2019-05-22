@@ -892,7 +892,7 @@ button:hover .cartIcon {
   padding: 5px;
   padding-bottom: 20px;
 }
-.postName {
+#input.postName {
   width: 100%;
   display: block;
   padding: 10px;

@@ -15,10 +15,12 @@ echo "<img id='logo' src='Images/logo.png'/>";
         $queryEventResult = $dbConn->query($sqlEvent);
         while ($rowObj = $queryEventResult->fetchObject()){
           //Display Event info
+          $eventDate = date_create("{$rowObj->eventDate}");
+          $date = date_format($eventDate, "d/m/y");
           echo "<div class='event_card'>
             <img class='imgRef' src='Event_IMG/{$rowObj->imgRef}' alt='Images/event.png'/>
             <h2 class='eventTitle'>{$rowObj->eventTitle}</h2>
-            <span class='eventDate'><img class='eventIcon' src='icons/iconmonstr-calendar-4-24.png'/>{$rowObj->eventDate}</span>
+            <span class='eventDate'><img class='eventIcon' src='icons/iconmonstr-calendar-4-24.png'/>$date</span>
             <span class='eventTime'><img class='eventIcon' src='icons/iconmonstr-time-1-24.png'/>{$rowObj->eventTime}</span>
           </div>
           <div class='event_card_more'>
