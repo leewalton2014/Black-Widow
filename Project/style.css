@@ -1202,6 +1202,14 @@ button:hover .cartIcon {
 @media only screen and (max-width: 767px) and (orientation: portrait) {
   /* portrait phones */
 
+  .createEvent {
+    width: 90%;
+  }
+
+  div .formlayout {
+    display: block;
+  }
+
   nav {
     background: #568cbb;
     height: 100vh;
@@ -1297,7 +1305,7 @@ button:hover .cartIcon {
   .event:nth-child(3n+2) {
   position: relative;
   top: 0px;
-}
+  }
 
   footer {
     display: block;
