@@ -1129,6 +1129,65 @@ button:hover .cartIcon {
   cursor: pointer;
 }
 
+/* -------------- Add event form ------------- */
+
+.createEvent {
+  width: 60%;
+  margin: 0 auto;
+}
+.createEvent label {
+  display: block;
+  padding: 10px 0px;
+}
+.formlayout {
+  display: flex;
+  /*justify-content: space-between;*/
+  padding-bottom: 5px;
+}
+.formlayout label {
+  padding-right: 20px;
+}
+.formlayout span {
+  flex-grow: 1;
+  width: 50%;
+}
+
+#eventTitle {
+  padding: 10px;
+  width: 100%;
+}
+#eventDescription {
+  padding: 10px;
+  width: 100%;
+  height: 100px;
+}
+#eventDate, #ticketPrice, #eventTime, #typeID, #stageID {
+  padding: 10px;
+}
+
+#addEventSubmit {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  width: 100%;
+  display: block;
+  padding: 10px;
+  border: none;
+  background-color: #e25757;
+  font-size: 100%;
+  color: white;
+  letter-spacing: 2px;
+  font-family: 'lemonmilkbold', 'Heebo';
+  font-weight: bolder;
+  text-transform: uppercase;
+  transition: .3s ease ;
+}
+#addEventSubmit:hover {
+  background-color: #cb4e4e;
+  letter-spacing: 5px;
+  cursor: pointer;
+}
+
+
 
 /* -------------- Media Query ------------- */
 

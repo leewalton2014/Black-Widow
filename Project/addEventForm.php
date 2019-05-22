@@ -22,29 +22,33 @@ echo "<div class='parent'>\n";
 
 
             echo "<fieldset class='createEvent'>\n";
-            echo "<legend>Create Event</legend>\n";
+            echo "<legend><h2>Create Event</h2></legend>\n";
             echo "<form action='addEvent.php' method='POST' enctype='multipart/form-data' id='createEvent'>\n";
             echo "<label for='eventTitle'>Event Title: </label><input type='text' name='eventTitle' id='eventTitle' placeholder='Enter a title for the event'/>\n";
-            echo "<label for='eventDescription'>Event Description: </label><input type='text' name='eventDescription' id='eventDescription'/>\n";
-            echo "<label for='eventDate'>Event Date: </label><input type='date' name='eventDate' id='eventDate'/>\n";
-            echo "<label for='eventTime'>Event Time: </label><input type='time' name='eventTime' id='eventTime'/>\n";
-            echo "<label for='typeID'>Event Type: </label>\n
-              <select name='typeID' id='typeID'>\n";
-            //fetch all categories one by one into the drop down list
-            while ($type = $queryTypeResult->fetchObject()) {
-                echo "<option value='{$type->typeID}'>{$type->eventType}</option>\n";
-            }
-            echo "</select>";
-            echo "<label for='stageID'>Stage: </label>\n";
-            echo "<select name='stageID' id='stageID'>\n";
-            //fetch all categories one by one into the drop down list
-            while ($stage = $queryStageResult->fetchObject()) {
-                    echo "<option value='{$stage->stageID}'>Stage: {$stage->stageNumber}|Max Capacity: {$stage->stageCapacity}</option>";
-            }//end while
-            echo "</select>";
-            echo "<label for='ticketPrice'>Price: </label><input type='text' name='ticketPrice' id='ticketPrice'/>\n";
-            echo "<label for='eventImage'>Upload Image: </label><input type='file' name='eventImage' id='eventImage'/>\n";
-            echo "<input type='submit' value='Add Event'/>\n";
+            echo "<label for='eventDescription'>Event Description: </label><textarea maxlength='120' type='text' name='eventDescription' id='eventDescription'></textarea>\n";
+            echo "<div class='formlayout'>";
+              echo "<span><label for='eventDate'>Event Date: </label><input type='date' name='eventDate' id='eventDate'/></span>\n";
+              echo "<span><label for='eventTime'>Event Time: </label><input type='time' name='eventTime' id='eventTime'/></span>\n";
+            echo "</div><div class='formlayout'>";
+              echo "<span><label for='typeID'>Event Type: </label>\n
+                <select name='typeID' id='typeID'>\n";
+              //fetch all categories one by one into the drop down list
+              while ($type = $queryTypeResult->fetchObject()) {
+                  echo "<option value='{$type->typeID}'>{$type->eventType}</option>\n";
+              }
+              echo "</select></span>";
+              echo "<span><label for='stageID'>Stage: </label>\n";
+              echo "<select name='stageID' id='stageID'>\n";
+              //fetch all categories one by one into the drop down list
+              while ($stage = $queryStageResult->fetchObject()) {
+                      echo "<option value='{$stage->stageID}'>Stage: {$stage->stageNumber}|Max Capacity: {$stage->stageCapacity}</option>";
+              }//end while
+              echo "</select></span>";
+            echo "</div><div class='formlayout'>";
+              echo "<span><label for='ticketPrice'>Price: </label><input type='text' name='ticketPrice' id='ticketPrice'/></span>\n";
+              echo "<span><label for='eventImage'>Upload Image: </label><input type='file' name='eventImage' id='eventImage'/></span>\n";
+            echo "</div>";
+            echo "<input type='submit' id='addEventSubmit' value='Add Event'/>\n";
             echo"</form>\n";
             echo "</fieldset>\n";
     }//end try
