@@ -10,6 +10,7 @@ echo "<table class='editEvents'>\n
             <th class='editTitle'>Event</th>\n
             <th class='editDesc'>Description</th>\n
             <th class='editDate'>Date</th>\n
+            <th class='deleteEvent'>Remove Event</th>\n
             </tr>\n";
     try{
         $dbConn = getConnection();
@@ -30,6 +31,7 @@ echo "<table class='editEvents'>\n
             echo "<td class='editTitle'><a class='button' href='editEvent.php?eventID={$rowObj->eventID}'>{$rowObj->eventTitle}</a></td>\n";
             echo "<td class='editDesc'>{$rowObj->eventDescription}</td>\n";
             echo "<td class='editDate'>$date</td>\n";
+            echo "<td class='deleteEvent'><a class='button' href='deleteEvent.php?eventID={$rowObj->eventID}'>Remove</a></td>\n";
             echo "</tr>\n";
         }//end while
     }//end try

@@ -34,7 +34,7 @@ $ticketPrice = trim($ticketPrice);
 $img_dir = "Event_IMG/";
 $img_target = $img_dir . basename($_FILES["eventImage"]["name"]);
 $img_name = basename($_FILES["eventImage"]["name"]);
-//$imgFileType = strtolower(pathinfo($img_target,PATHINFO_EXTENSION));
+
 if (move_uploaded_file($_FILES["eventImage"]["tmp_name"], $img_target)){
   echo "The file ". basename( $_FILES["eventImage"]["name"]). " has been uploaded.";
 } else {
