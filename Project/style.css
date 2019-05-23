@@ -85,6 +85,7 @@ header {
 }
 #logIn {
   flex: 1;
+  max-width: 110px;
   padding: 10px;
   cursor: pointer;
   text-decoration: none;
@@ -121,6 +122,9 @@ nav {
   font-family: 'lemonmilkbold', 'Heebo';
   font-weight: bolder;
   text-transform: uppercase;
+}
+#spacer {
+  flex: 1;
 }
 nav ul {
   list-style-type: none;
