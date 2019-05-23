@@ -4,7 +4,9 @@ require_once('functions.php');
 startHTML('Success', 'Order Conformation');
 pageHeader('');
 titleBanner('Payment Successfull', 'Thanks for your order!');
+echo "<div class='parent'>\n";
 $username = "LWalton";
+$orderNumber = uniqid($username);
 try {
     $dbConn = getConnection();//Connect to db
     //Create records in order table for items in basket
@@ -12,30 +14,25 @@ try {
     FROM aa_cart
     INNER JOIN aa_events ON aa_cart.eventID = aa_events.eventID
     WHERE custID = '$username'";
-
     $queryResult = $dbConn->query($orderSQL);
+
     while ($rowObj = $queryResult->fetchObject()) {
 
         $eventID = "{$rowObj->eventID}";
         $itemQuantity = "{$rowObj->cartItemQuantity}";
+        $sqlAddToSales = "INSERT INTO aa_sales (custID, eventID, saleQuantity, orderNumber)
+        VALUES ('$username','$eventID','$itemQuantity','$orderNumber')";
+        $saleProcess = $dbConn->query($sqlAddToSales);
 
-        $insertSQL = "INSERT INTO aa_orders (custID, eventID, itemQuantity)
-        VALUES ('$username','$eventID','$itemQuantity')";
-        $queryResult = $dbConn->query($sqlAddToCart);
-
-        if ($queryResult === false){
-          echo "<p>Order unsuccessfull contact customer support if your payment method has been charged!</p>\n";
-          exit;
-        }//end if
     }//end while
 
     //Clear basket items
     $clearItems = "DELETE FROM aa_cart
     WHERE custID = '$username'";
     //execute query
-    $queryResult = $dbConn->query($clearItems);
+    $clearCart = $dbConn->query($clearItems);
 
-    if ($queryResult === false) {
+    if ($clearCart === false) {
       echo "<p>Order unsuccessfull contact customer support if your payment method has been charged!</p>\n";
       exit;
     }
@@ -45,6 +42,6 @@ catch (Exception $e) {
 }
 
 
-
+echo "</div>\n";
 echo endPage();
 ?>

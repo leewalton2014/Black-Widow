@@ -43,63 +43,54 @@ echo "<img id='logo' src='Images/logo.png'/>
     </div>
     <section>
         <p>love music events?</p>
-        <h2>Welcome Home</h2>
+        <h2>Welcome To The Arena</h2>
         <hr>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.</p>
+        <p>The avengers arena is a brand new one of a kind venue in newcastle. We host many events from music to comedy and even trade shows.</p>
+        <p>You can use our new website to browse and purchase tickets online from the comfort of your own home. Simply choose your tickets, pay and you will recieve an e-ticket on your device.</p>
+        <p>If you are intrested in hosting an event at the arena contact us via our email in our 'about us' page.</p>
     </section>
   </article>
 
   <article id='featured'>
-      <p id='tagline'>Upcoming Events and Gigs</p>
-      <h3>Featured Events</h3>
+      <p id='tagline'>Whats going on today?</p>
+      <h3>Todays Events</h3>
       <!-- events -->
-      <div id='eventWrap'>
-
-        <section class='event' style='background-image: url(Images/event.png)'><!--Image URL-->
-          <a href=''><!-- link generated with php -->
-            <p>Tyler The Creator</p><!--Title-->
-            <p>3rd August 2019</p><br/><!--Date-->
-            <i>Tyler Gregory Okonma better known by his stage name Tyler, The Creator, is an American rapper and record producer from California.</i><!--Desc 120 charaters max-->
-          </a>
-        </section>
-
-        <section class='event'>
-          <a href=''>
-            <p>Title</p>
-            <p>Date</p><br/>
-            <i>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </i>
-          </a>
-        </section>
-        <section class='event'>
-          <a href=''>
-            <p>Title</p>
-            <p>Date</p><br/>
-            <i>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </i>
-          </a>
-        </section>
-        <section class='event'>
-          <a href=''>
-            <p>Title</p>
-            <p>Date</p><br/>
-            <i>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </i>
-          </a>
-        </section>
-        <section class='event'>
-          <a href=''>
-            <p>Title</p>
-            <p>Date</p><br/>
-            <i>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </i>
-          </a>
-        </section>
-        <section class='event'>
-          <a href=''>
-            <p>Title</p>
-            <p>Date</p><br/>
-            <i>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </i>
-          </a>
-        </section>
-      </div>
-  </article>";
+      <div id='eventWrap'>\n";
+try{
+  $dbConn = getConnection();
+  //current date
+  $currentDate = date("YY-mm-dd");
+  //Query to retrieve events
+  $sqlEvents = "SELECT eventID, eventTitle, eventDescription, eventDate, eventTime, eventType, stageNumber, stageCapacity, ticketPrice, imgRef
+  FROM aa_events
+  INNER JOIN aa_event_type ON aa_events.typeID = aa_event_type.typeID
+  INNER JOIN aa_event_stage ON aa_events.stageID = aa_event_stage.stageID
+  WHERE eventDate  = '$currentDate'
+  ORDER BY eventTitle";
+  $queryResult = $dbConn->query($sqlEvents);
+  if($queryResult){
+    //Display events
+    while ($rowObj = $queryResult->fetchObject()){
+      //Display Event info
+      $eventDate = date_create("{$rowObj->eventDate}");
+      $date = date_format($eventDate, "d/m/y");
+      echo "<section class='event' style='background-image: url(Event_IMG/{$rowObj->imgRef})'>\n";
+      echo "<a href='viewEvent.php?eventID={$rowObj->eventID}'>";
+      echo "<p>{$rowObj->eventTitle}</p>";
+      echo "<p>$date</p><br/>";
+      echo "<i>{$rowObj->eventDescription}</i>";
+      echo "</a>";
+      echo "</section>\n";
+    }//end while
+  }else{
+    echo "<p>There are no events sceduled for today.</p>\n";
+  }
+}
+catch(Exception $e){
+  echo "<p>Nothing to show.</p>\n";
+}
+echo "</div>\n";
+echo "</article>\n";
 
 echo endPage();
 ?>

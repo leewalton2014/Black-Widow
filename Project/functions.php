@@ -41,6 +41,11 @@ function pageHeader($currentPage){
   $nav .= "<img alt='log in' src='icons/iconmonstr-log-out-13-24.png'/>\n";
   $nav .= "<h2>Log in</h2>\n";
   $nav .= "</a>\n";
+  $nav .= "<a href='viewCart.php' id='logIn'>\n";
+  $nav .= "<img alt='cart' src='icons/iconmonstr-shopping-cart-3-24.png'/>\n";
+  $nav .= "<h2>Cart</h2>\n";
+  $nav .= "</a>\n";
+  $nav .= "<span id='spacer'></span>\n";
   $nav .= "<nav id='nav'>\n";
   $nav .= "<ul>\n";
   //if nav link is current page then apply active styling to current nav tab
@@ -56,12 +61,6 @@ function pageHeader($currentPage){
   }
   else{
     $nav .= "<li><a href='viewEvents.php'><img src='icons/round-event_note-24px.svg'/>View Events</a></li>\n";
-  }
-  if($currentPage == "Shopping Cart"){
-    $nav .= "<li class='active'><a href='viewCart.php'><img src='icons/round-event_note-24px.svg'/>Shopping Cart</a></li>\n";
-  }
-  else{
-    $nav .= "<li><a href='viewCart.php'><img src='icons/round-event_note-24px.svg'/>Shopping Cart</a></li>\n";
   }
   if($currentPage == "Merchandice"){
     $nav .= "<li class='active'><a href=''><img src='icons/t-shirt-black-silhouette.svg'/>Merchandice</a></li>\n";

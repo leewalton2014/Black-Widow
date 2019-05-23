@@ -23,30 +23,35 @@ $username = trim($username);
 
 $password = filter_has_var(INPUT_POST, 'password') ? $_POST['password'] : null;
 $password = trim($password);
-
+//password
 $passwordCheck = filter_has_var(INPUT_POST, 'passwordCheck') ? $_POST['passwordCheck'] : null;
 $passwordCheck = trim($passwordCheck);
 $passwordHash = password_hash($password, PASSWORD_DEFAULT);
-
+//query
+$addUserInfo = "INSERT INTO aa_customers (custForename, custSurname, custEmail, custUsername, custPasswordHash)
+VALUES ('$forename','$surname','$email','$username','$passwordHash')";
+//check if password check matches
 if($password == $passwordCheck){
-  $addUserInfo = "INSERT INTO aa_customers (custForename, custSurname, custEmail, custUsername, custPasswordHash)
-  VALUES ('$forename','$surname','$email','$username','$passwordHash')";
+  if($errors){
+    foreach($errors as $error)
+    {
+      echo "<p>$error</p><br>\n";
+    }
+  }else{
+    $queryResult = $dbConn->query($addUserInfo);
+    if ($queryResult === false) {
+      echo "<p>Please try again!</p>\n";
+      exit;
+    } else {
+      header("Location: index.php");
+      //change to customer page later
+    }
 }else{
-  $errors[] = "Please ensure password and confirmation password are the same!";
-}
-
-if($errors){
-  foreach($errors as $error)
-  {
-    echo "<p>$error</p><br>\n";
-  }
-}else{
-  $queryResult = $dbConn->query($addUserInfo);
-  if ($queryResult === false) {
-    echo "<p>Please try again!</p>\n";
-    exit;
-  } else {
-    header("Location: index.php");
-    //change to customer page later
+  if($errors){
+    foreach($errors as $error){
+      echo "<p>$error</p><br>\n";
+    }
+  echo "<p>Please ensure password and confirmation password are the same!</p>\n";
   }
 }
+?>
