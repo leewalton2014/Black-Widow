@@ -7,6 +7,7 @@ titleBanner('Payment Successfull', 'Thanks for your order!');
 echo "<div class='parent'>\n";
 $username = "LWalton";
 $orderNumber = uniqid($username);
+$date  = date("Y-m-d");
 try {
     $dbConn = getConnection();//Connect to db
     //Create records in order table for items in basket
@@ -20,8 +21,8 @@ try {
 
         $eventID = "{$rowObj->eventID}";
         $itemQuantity = "{$rowObj->cartItemQuantity}";
-        $sqlAddToSales = "INSERT INTO aa_sales (custID, eventID, saleQuantity, orderNumber)
-        VALUES ('$username','$eventID','$itemQuantity','$orderNumber')";
+        $sqlAddToSales = "INSERT INTO aa_sales (custID, eventID, saleQuantity, orderNumber, orderDate)
+        VALUES ('$username','$eventID','$itemQuantity','$orderNumber','$date')";
         $saleProcess = $dbConn->query($sqlAddToSales);
 
     }//end while

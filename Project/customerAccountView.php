@@ -1,12 +1,18 @@
 <?php
 //link to functions script
 require_once('functions.php');
-startHTML('Cart', 'Review items and checkout');
-pageHeader('Shopping Cart');
-titleBanner('Your Shopping Cart', 'Review your items and checkout');
+startHTML('Your Account', 'View customer account information');
+pageHeader('View Account');
+titleBanner('Your Account', 'View your details and view your previous orders');
 echo "<div class='parent'>";
 $username = "LWalton";
-
+echo "<h2>Your Previous Orders</h2>\n";
+echo "<table class='orderTable'>\n
+            <tr>\n
+            <th class='orderNo'>Order Number</th>\n
+            <th class='orderDate'>Order Date</th>\n
+            <th class='itemQuantity'>No. Of Items</th>\n
+            </tr>\n";
 try{
 
     $dbConn = getConnection();
@@ -14,31 +20,20 @@ try{
     //$username = $_SESSION['username'];
     $username = "LWalton";
 
-    $getCart = "SELECT cartItemID, aa_events.eventID, eventTitle, imgRef, ticketPrice, cartItemQuantity
-    FROM aa_cart
-    INNER JOIN aa_events ON aa_cart.eventID = aa_events.eventID
-    WHERE custID = '$username'";
+    $getOrders = "SELECT orderNumber, orderDate, SUM(saleQuantity) AS orderQuantity
+    FROM aa_sales
+    WHERE custID = '$username'
+    GROUP BY orderNumber
+    ORDER BY orderDate DESC";
 
-    $TotalPrice = 0;
-
-    $queryResult = $dbConn->query($getCart);
+    $queryResult = $dbConn->query($getOrders);
     while ($rowObj = $queryResult->fetchObject()) {
-        $ItemTotal = "{$rowObj->cartItemQuantity}" * "{$rowObj->ticketPrice}";
-        $TotalPrice = $TotalPrice + $ItemTotal;
-        echo "<div class='cartItem'>\n";
-        echo "<form action='updateQuantity.php' method='POST' id='{$rowObj->eventID}'>\n";
-        echo "<input type='hidden' name='cartItemID' value='{$rowObj->cartItemID}' id='cartItemID'/>\n";
-        echo "<div class='cartInfo'>\n";
-        echo "<h2 class='cartTitle'><a href='viewEvent.php?eventID={$rowObj->eventID}'>{$rowObj->eventTitle}</a></h2>\n";
-        echo "<p class='cartPrice'>£{$rowObj->ticketPrice}</p>\n";
-        echo "<p class='cartLabel'>Quantity: </p>\n";
-        echo "<input type='number' name='itemQuantity' class='cartQuantity' value='{$rowObj->cartItemQuantity}'/>\n";
-        echo "<input type='submit' class='updateQuantity'/>\n";
-        echo "</form>";
-        echo "<a class='cartRemove' href='removeItem.php?cartItemID={$rowObj->cartItemID}'><img src='icons/iconmonstr-trash-can-1-24.png'/>Remove Item</a>\n";
-        echo "</div>\n";
-        echo "<img src='Event_IMG/{$rowObj->imgRef}' class='cartImg'>\n";
-        echo "</div>\n";
+      echo "<tr>\n";
+      //link to view each order
+      echo "<td class='orderNo'><a class='button' href='viewOrder.php?orderNumber={$rowObj->orderNumber}'>{$rowObj->orderNumber}</a></td>\n";
+      echo "<td class='orderDate'>{$rowObj->orderDate}</td>\n";
+      echo "<td class='itemQuantity'>{$rowObj->orderQuantity}</td>\n";
+      echo "</tr>\n";
     }//end while
 }//end try
 catch (Exception $e){
@@ -47,7 +42,7 @@ catch (Exception $e){
 
 
 
-
+echo "</table>";
 echo "</div>";
 echo "</article>";
 echo endPage();
