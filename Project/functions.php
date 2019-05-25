@@ -16,7 +16,7 @@ function setSessionPath(){
     ini_set('session.save_path', '/home/unn_w17007224/sessionData');
     session_start();
     //Set redirect url
-    $_SESSION['redirect'] = $_SERVER['REQUEST_URI'];
+    //$_SESSION['redirect'] = $_SERVER['REQUEST_URI'];
 }
 //Cart Functions
 //Cart item count
@@ -37,9 +37,13 @@ function pageHeader($currentPage){
   $nav .= "<input type='checkbox' id='menuBtn' alt='menu button'/>\n";
   $nav .= "<label for='menuBtn'></label>\n";
   //Navbar Links
-  $nav .= "<a href='' id='logIn'>\n";
+  $nav .= "<a href='customerLogin.php' id='logIn'>\n";
   $nav .= "<img alt='log in' src='icons/iconmonstr-log-out-13-24.png'/>\n";
   $nav .= "<h2>Log in</h2>\n";
+  $nav .= "</a>\n";
+  $nav .= "<a href='customerAccountView.php' id='logIn'>\n";
+  $nav .= "<img alt='account view' src='icons/iconmonstr-user-1-24.png'/>\n";
+  $nav .= "<h2>View Account</h2>\n";
   $nav .= "</a>\n";
   $nav .= "<a href='viewCart.php' id='logIn'>\n";
   $nav .= "<img alt='cart' src='icons/iconmonstr-shopping-cart-3-24.png'/>\n";
