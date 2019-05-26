@@ -1,7 +1,10 @@
 <?php
 
 require_once('functions.php');
-
+startHTML('Signup', 'Sign up to purchase Tickets');
+pageHeader('');
+titleBanner('Please try again', 'Signup to gain access to buy tickets.');
+echo "<div class='parent'>\n";
 try {
     $dbConn = getConnection();//Connect to db
 }
@@ -32,26 +35,29 @@ $addUserInfo = "INSERT INTO aa_customers (custForename, custSurname, custEmail, 
 VALUES ('$forename','$surname','$email','$username','$passwordHash')";
 //check if password check matches
 if($password == $passwordCheck){
-  if($errors){
-    foreach($errors as $error)
-    {
-      echo "<p>$error</p><br>\n";
-    }
-  }else{
+  //if($errors){
+    //foreach($errors as $error)
+    //{
+      //echo "<p>$error</p><br>\n";
+    //}
+  //}else{
     $queryResult = $dbConn->query($addUserInfo);
     if ($queryResult === false) {
       echo "<p>Please try again!</p>\n";
       exit;
     } else {
-      header("Location: index.php");
+      header("Location: customerAccountView.php");
+      die();
       //change to customer page later
     }
 }else{
-  if($errors){
-    foreach($errors as $error){
-      echo "<p>$error</p><br>\n";
-    }
+  //if($errors){
+    //foreach($errors as $error){
+      //echo "<p>$error</p><br>\n";
+    //}
   echo "<p>Please ensure password and confirmation password are the same!</p>\n";
-  }
+  //}
 }
+echo "</div>";
+echo endPage();
 ?>

@@ -25,7 +25,7 @@ try{
     $getOrders = "SELECT eventTitle, eventDate, saleQuantity, saleQuantity*ticketPrice AS TotalPrice
     FROM aa_sales
     INNER JOIN aa_events ON aa_sales.eventID = aa_events.eventID
-    WHERE orderNumber = '$orderNumber' AND custID = '$username'
+    WHERE orderNumber = '$orderNumber'
     ORDER BY eventTitle";
 
     $queryResult = $dbConn->query($getOrders);

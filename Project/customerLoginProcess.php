@@ -1,6 +1,9 @@
 <?php
 //link to functions script
 require_once('functions.php');
+startHTML('Please Try Again', 'Login failled');
+pageHeader('');
+titleBanner('Incorrect Account Details', 'Login using your username and password!');
 //start session
 setSessionPath();
 //get username and password from form
@@ -8,9 +11,10 @@ $username = filter_has_var(INPUT_POST, 'username') ? $_POST['username'] : null;
 $username = trim($username);
 $password = filter_has_var(INPUT_POST, 'password') ? $_POST['password'] : null;
 $password = trim($password);
+echo "<div class='parent'>\n";
 //check if empty
-if(empty($userName)||empty($password)){
-  header('Location:'.$_SESSION['redirect']);
+if(empty($username)||empty($password)){
+  header('Location: customerLogin.php');
   exit();
 }else{
   //unset previous variable values
@@ -25,7 +29,7 @@ if(empty($userName)||empty($password)){
   //if a record is returned then user exists
   if($user){
       //if the entered password has the same hash value as the password hash then create session
-      if(password_verify($password, $user->passwordHash)){
+      if(password_verify($password, $user->custPasswordHash)){
           //Set session variable
           $_SESSION['customer'] = true;
           //Set a session variable called username and set it as the username
@@ -36,14 +40,18 @@ if(empty($userName)||empty($password)){
       }//end if
       else{
           //Redirect to original page
-          header('Location: customerLogin.php');
-          exit();
+          //header('Location: customerLogin.php');
+          //exit();
+          echo "<p>Incorrect Password <a href='customerLogin.php'>try again</a></p>";
       }//end else
   }//end if
   else{
       //Redirect to original page
-      header('Location: customerLogin.php');
-      exit();
+      //header('Location: customerLogin.php');
+      //exit();
+      echo "<p>Incorrect Username <a href='customerLogin.php'>try again</a></p>";
   }//end else
 }//end else
+echo "</div>";
+echo endPage();
 ?>

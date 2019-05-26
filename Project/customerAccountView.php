@@ -6,6 +6,8 @@ pageHeader('View Account');
 titleBanner('Your Account', 'View your details and view your previous orders');
 echo "<div class='parent'>";
 $username = "LWalton";
+echo "<h2>Update Your Info</h2>\n";
+
 echo "<h2>Your Previous Orders</h2>\n";
 echo "<table class='orderTable'>\n
             <tr>\n

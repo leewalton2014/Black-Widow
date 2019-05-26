@@ -9,7 +9,13 @@ echo "<a href='addEventForm.php'>Create Event</a><br>\n";
 echo "<a href='editEventList.php'>Modify Events</a><br>\n";
 echo "<a href=''>View Sales</a><br>\n";
 echo "<a href=''>Logout</a><br>\n";
-echo "<h2>Ticket Sales</h2>";
+echo "<h2>View contents of an order</h2>\n";
+echo "<form action='viewOrder.php' method='POST' enctype='multipart/form-data' id='viewOrder'>\n";
+echo "<p>Enter the order number of an order to view its contents</p>";
+echo "<input type='text' name='orderNumber'>\n";
+echo "<input type='submit' value='View Order'>\n";
+echo "</form>\n";
+echo "<h2>Ticket Sales</h2>\n";
 echo "<table class='orderItems'>\n
             <tr>\n
             <th class='eventName'>Event Name</th>\n

@@ -53,13 +53,11 @@ echo "<img id='logo' src='Images/logo.png'/>
 
   <article id='featured'>
       <p id='tagline'>Whats going on today?</p>
-      <h3>Todays Events</h3>
-      <!-- events -->
-      <div id='eventWrap'>\n";
+      <h3>Todays Events</h3>\n";
 try{
   $dbConn = getConnection();
   //current date
-  $currentDate = date("YY-mm-dd");
+  $currentDate = date("Y-m-d");
   //Query to retrieve events
   $sqlEvents = "SELECT eventID, eventTitle, eventDescription, eventDate, eventTime, eventType, stageNumber, stageCapacity, ticketPrice, imgRef
   FROM aa_events
@@ -68,7 +66,10 @@ try{
   WHERE eventDate  = '$currentDate'
   ORDER BY eventTitle";
   $queryResult = $dbConn->query($sqlEvents);
-  if($queryResult){
+  if(empty($queryResult)){
+      echo "<h2>There are no events sceduled for today</h2>\n";
+  }else{
+    echo "<div id='eventWrap'>\n";
     //Display events
     while ($rowObj = $queryResult->fetchObject()){
       //Display Event info
@@ -82,14 +83,12 @@ try{
       echo "</a>";
       echo "</section>\n";
     }//end while
-  }else{
-    echo "<p>There are no events sceduled for today.</p>\n";
+    echo "</div>\n";
   }
 }
 catch(Exception $e){
   echo "<p>Nothing to show.</p>\n";
 }
-echo "</div>\n";
 echo "</article>\n";
 
 echo endPage();
