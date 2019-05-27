@@ -29,6 +29,13 @@ $passwordHash = password_hash($password, PASSWORD_DEFAULT);
 //query
 $newAdmin = "INSERT INTO aa_admins (forename, surname, username, passwordHash)
 VALUES ('$forename','$surname','$username','$passwordHash')";
+$checkusername = "SELECT count(username) as UsernameCount
+FROM aa_admins
+WHERE username = '$username'";
+$usernames = $dbConn->query($checkusername);
+$usernameCount = $usernames->fetchObject();
+//check username is not currently in use
+if($usernameCount->UsernameCount==0){
 //check if password check matches
 if($password == $passwordCheck){
   //if($errors){
@@ -51,8 +58,11 @@ if($password == $passwordCheck){
     //foreach($errors as $error){
       //echo "<p>$error</p><br>\n";
     //}
-  echo "<p>Please ensure password and confirmation password are the same!</p>\n";
+  echo "<p>Please ensure password and confirmation password are the same! <a href='newAdminForm.php'>Try again.</a></p>\n";
   //}
+}
+}else{
+  echo "<p>Sorry username allready taken. <a href='newAdminForm.php'>Try again.</a></p>\n";
 }
 echo "</div>";
 echo endPage();
