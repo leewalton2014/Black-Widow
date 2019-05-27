@@ -3,17 +3,15 @@
 require_once('functions.php');
 startHTML('Signup', 'Sign up to purchase Tickets');
 pageHeader('');
-titleBanner('Customer Signup', 'Signup to gain access to buy tickets.');
+titleBanner('New Admin Form', 'Create new account with admin access');
 echo "<div class='parent'>\n";
-echo "<h2>Signup</h2>
-<p>Ensure ALL fields are filled in.</p>
-<form action='customerSignupProcess.php' method='POST' enctype='multipart/form-data' id='newCustomer'>
+echo "<h2>Create new administrator account</h2>
+<p>Please note this creates a new account with admin/management access. Please ensure ALL fields are filled in.</p>
+<form action='newAdminProcess.php' method='POST' enctype='multipart/form-data' id='newAdmin'>
 <label for='forename'>Forename:</label>
 <input type='text' id='forename' name='forename'>
 <label for='surname'>Surname:</label>
 <input type='text' id='surname' name='surname'>
-<label for='email'>Email:</label>
-<input type='text' id='email' name='email'>
 <label for='username'>Username:</label>
 <input type='text' id='username' name='username'>
 <label for='password'>Password:</label>
@@ -22,9 +20,6 @@ echo "<h2>Signup</h2>
 <input type='password' id='passwordCheck' name='passwordCheck'>
 <input type='submit' value='Create Account'>
 </form>";
-
-
-
 echo "</div>";
 echo endPage();
 ?>

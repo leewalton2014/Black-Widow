@@ -15,8 +15,8 @@ function getConnection() {
 function setSessionPath(){
     ini_set('session.save_path', '/home/unn_w17007224/sessionData');
     session_start();
-    //Set redirect url
-    //$_SESSION['redirect'] = $_SERVER['REQUEST_URI'];
+    //get previous page to use for redirects back
+    $_SESSION['previous_page'] =  $_SERVER['HTTP_REFERER'];//$_SERVER['REQUEST_URI'];
 }
 //Cart Functions
 //Cart item count

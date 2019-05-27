@@ -1,6 +1,8 @@
 <?php
 //link to functions script
 require_once('functions.php');
+//start session
+setSessionPath();
     try{
 
         $dbConn = getConnection();
@@ -18,9 +20,7 @@ require_once('functions.php');
 
         $queryResult = $dbConn->query($sqlAddToCart);
 
-        echo "<h2>Cart Updated</h2>\n";
-        echo "<a href='viewEvents.php'>Continue Shopping!</a>\n";
-        echo "<a href='viewCart.php'>View Basket</a>\n";
+        header('Location: viewCart.php');
 
 
     }//end try

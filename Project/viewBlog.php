@@ -1,13 +1,17 @@
 <?php
 //link to functions script
 require_once('functions.php');
+//start session
+setSessionPath();
+//start page layout
 startHTML('Blog', 'Keeping you informed');
 pageHeader('Blog');
 titleBanner('News', 'Keeping you informed');
 echo "<div class='parent'>";
 echo "<div class='blogPosts' >
-  <div class='blogWrap'>
-    <div class='newPost'>
+  <div class='blogWrap'>";
+if (isset($_SESSION['admin']) && $_SESSION['admin']){
+  echo"<div class='newPost'>
       <h2>Insert New Post</h2>
       <form action='addBPost.php' method='POST' enctype='multipart/form-data' id='addBPost'>
       <input type='text' placeholder='Name of post' class='postName' name='postTitle'>
@@ -15,6 +19,7 @@ echo "<div class='blogPosts' >
       <input type='submit' class='postSubmit'>
       </form>
     </div>";
+}
 try{
   //connect to db
   $dbConn = getConnection();

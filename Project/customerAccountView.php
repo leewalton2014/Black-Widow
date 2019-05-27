@@ -1,11 +1,17 @@
 <?php
 //link to functions script
 require_once('functions.php');
+//start session
+setSessionPath();
+//start page layout
 startHTML('Your Account', 'View customer account information');
 pageHeader('View Account');
 titleBanner('Your Account', 'View your details and view your previous orders');
 echo "<div class='parent'>";
 $username = "LWalton";
+
+//check if customer is logged in
+if (isset($_SESSION['customer']) && $_SESSION['customer']){
 echo "<h2>Update Your Info</h2>\n";
 
 echo "<h2>Your Previous Orders</h2>\n";
@@ -42,9 +48,13 @@ catch (Exception $e){
     echo "<p>Error finding orders, check again later.</p>\n";
   }//end catch
 
-
-
 echo "</table>";
+echo "<a href='logout.php'>Logout</a><br>\n";
+}else{
+  //else customer is not logged in
+  //send to login page
+  header('Location: customerLogin.php');
+}
 echo "</div>";
 echo "</article>";
 echo endPage();

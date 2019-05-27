@@ -1,11 +1,14 @@
 <?php
 //link to functions script
 require_once('functions.php');
-$orderNumber = isset($_REQUEST['orderNumber']) ? $_REQUEST['orderNumber'] : null;
+//start session
+setSessionPath();
+//start page layout
 startHTML('Order Details', 'View items in a specific order');
 pageHeader('View Order');
 titleBanner('Order View', 'View contents of your previous order');
 echo "<div class='parent'>";
+$orderNumber = isset($_REQUEST['orderNumber']) ? $_REQUEST['orderNumber'] : null;
 $username = "LWalton";
 echo "<h2>Order #$orderNumber</h2>\n";
 echo "<table class='orderItems'>\n
@@ -56,7 +59,8 @@ catch (Exception $e){
     echo "<p>Error finding orders, check again later.</p>\n";
   }//end catch
 echo "</table>";
-echo "<a class='button' href='customerAccountView.php'>Return to account view</a>";
+$redirect = $_SESSION['previous_page'];
+echo "<a class='button' href='$redirect'>Back</a>\n";
 echo "</div>";
 echo "</article>";
 echo endPage();

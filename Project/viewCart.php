@@ -1,10 +1,15 @@
 <?php
 //link to functions script
 require_once('functions.php');
+//start session
+setSessionPath();
+//start page layout
 startHTML('Cart', 'Review items and checkout');
 pageHeader('Shopping Cart');
 titleBanner('Your Shopping Cart', 'Review your items and checkout');
 echo "<div class='parent'>";
+//check if customer is logged in
+if (isset($_SESSION['customer']) && $_SESSION['customer']){
 echo "<section class='cart'>";
     try{
 
@@ -73,6 +78,12 @@ echo "<h2>Checkout</h2>";
 echo "<p class='checkoutPrice'>Total :  £$TotalPrice</p>";
 echo "<button type='submit' form='cart' id='checkoutBtn'><img src='icons/iconmonstr-debit-6-24.png'/>Go to Checkout</button>";
 echo "</aside>";
+}else{
+  //user is not logged in
+  //send to login page
+  header('Location: customerLogin.php');
+  die();
+}
 echo "</div>";
 echo "</article>";
 echo endPage();
