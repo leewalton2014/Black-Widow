@@ -8,7 +8,7 @@ startHTML('Your Account', 'View customer account information');
 pageHeader('View Account');
 titleBanner('Your Account', 'View your details and view your previous orders');
 echo "<div class='parent'>";
-$username = "LWalton";
+$username = $_SESSION['userid'];
 
 //check if customer is logged in
 if (isset($_SESSION['customer']) && $_SESSION['customer']){
@@ -25,9 +25,6 @@ try{
 
     $dbConn = getConnection();
     //Display cart items
-    //$username = $_SESSION['username'];
-    $username = "LWalton";
-
     $getOrders = "SELECT orderNumber, orderDate, SUM(saleQuantity) AS orderQuantity
     FROM aa_sales
     WHERE custID = '$username'
@@ -54,6 +51,7 @@ echo "<a href='logout.php'>Logout</a><br>\n";
   //else customer is not logged in
   //send to login page
   header('Location: customerLogin.php');
+  die();
 }
 echo "</div>";
 echo "</article>";

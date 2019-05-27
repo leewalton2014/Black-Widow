@@ -1,12 +1,15 @@
 <?php
 //link to functions script
 require_once('functions.php');
+//start session
+setSessionPath();
+//start page layout
 startHTML('Add Event', 'Manage site content');
 pageHeader('');
 titleBanner('Add an Event', 'Provide details of a new event, ensure all fields are populated');
 echo "<div class='parent'>\n";
-//if user is logged in then display update form
-//if (isset($_SESSION['logged-in']) && $_SESSION['logged-in']){//Session active
+//if admin user is logged in then display update form
+if (isset($_SESSION['admin']) && $_SESSION['admin']){
     try{
         $dbConn = getConnection();
 
@@ -55,12 +58,12 @@ echo "<div class='parent'>\n";
     catch (Exception $e){
         echo "<p>Query failed: ".$e->getMessage()."</p>\n";
     }//end catch
-//}//end if
-//if user is not logged in display an error message
-//else {
-    //echo "<h2>Access Denied!</h2>\n
-            //<p>Login to view record list and/or edit details for records.</p>\n";
-//}//end else
+  }else{
+    //admin not logged in
+    //redirect to admin dashboard
+    header('Location: adminDash.php');
+    die();
+  }
 echo "</div>";
 echo endPage();
 ?>

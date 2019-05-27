@@ -1,11 +1,12 @@
 <?php
 require_once('functions.php');
-
+//start session
+setSessionPath();
 //Get id of item to remove from basket
 $cartItemID = filter_has_var(INPUT_GET, 'cartItemID') ? $_GET['cartItemID'] : null;
 $cartitemID = trim($cartItemID);
 //temp username var
-$username = "LWalton";
+$username = $_SESSION['userid'];
 try {
     $dbConn = getConnection();//Connect to db
     //delete query

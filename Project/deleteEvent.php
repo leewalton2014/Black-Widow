@@ -1,6 +1,9 @@
 <?php
 //link to functions script
 require_once('functions.php');
+//start session
+setSessionPath();
+//get event id
 $eventID = isset($_REQUEST['eventID']) ? $_REQUEST['eventID'] : null;
 try{
     $dbConn = getConnection();

@@ -15,8 +15,7 @@ echo "<section class='cart'>";
 
         $dbConn = getConnection();
         //Display cart items
-        //$username = $_SESSION['username'];
-        $username = "LWalton";
+        $username = $_SESSION['userid'];
 
         $getCart = "SELECT cartItemID, aa_events.eventID, eventTitle, imgRef, ticketPrice, cartItemQuantity
         FROM aa_cart

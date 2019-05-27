@@ -8,6 +8,14 @@ startHTML('Login', 'Login to customer account');
 pageHeader('Login');
 titleBanner('Login', 'Login to buy and view tickets.');
 echo "<div class='parent'>";
+//check if customer is logged in
+if (isset($_SESSION['customer']) && $_SESSION['customer']){
+  //customer allready logged in
+  //redirect to account view
+  header('Location: customerAccountView.php');
+  die();
+}else{
+//customer login form
 echo "<div class='logIn'>
   <h1>Log in</h1>
   <form action='customerLoginProcess.php' method='POST' enctype='multipart/form-data' id='customerLogin'>
@@ -26,7 +34,7 @@ echo "<div class='logIn'>
     <a href='customerSignup.php'>Register Account</a>
   </div>
 </div>";
-
+}
 
 
 echo "</div>";

@@ -1,8 +1,9 @@
 <?php
 require_once('functions.php');
-
-//temp username var
-$username = "LWalton";
+//start session
+setSessionPath();
+//username var
+$username = $_SESSION['userid'];
 try {
     $dbConn = getConnection();//Connect to db
     //delete query

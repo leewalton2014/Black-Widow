@@ -14,8 +14,9 @@ $password = trim($password);
 echo "<div class='parent'>\n";
 //check if empty
 if(empty($username)||empty($password)){
-  header('Location: customerLogin.php');
-  exit();
+  //header('Location: customerLogin.php');
+  //exit();
+  echo "<p>Please enter username AND password. <a href='customerLogin.php'>try again</a></p>";
 }else{
   //unset previous variable values
   session_unset();

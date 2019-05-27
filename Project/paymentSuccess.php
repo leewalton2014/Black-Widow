@@ -1,11 +1,14 @@
 <?php
 //link to functions script
 require_once('functions.php');
+//start session
+setSessionPath();
+//start page layout
 startHTML('Success', 'Order Conformation');
 pageHeader('');
 titleBanner('Payment Successfull', 'Thanks for your order!');
 echo "<div class='parent'>\n";
-$username = "LWalton";
+$username = $_SESSION['userid'];
 $orderNumber = uniqid($username);
 $date  = date("Y-m-d");
 try {

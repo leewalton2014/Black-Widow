@@ -1,13 +1,16 @@
 <?php
 //link to functions script
 require_once('functions.php');
+//start session
+setSessionPath();
+//start page layout
 startHTML('Modify Event', 'update details for a specific event');
 pageHeader('');
 titleBanner('Modify Event Details', 'Modify the fields below and click update to change event information');
 echo "<div class='parent'>\n";
 $eventID = isset($_REQUEST['eventID']) ? $_REQUEST['eventID'] : null;
 //if user is logged in then display update form
-//if (isset($_SESSION['logged-in']) && $_SESSION['logged-in']){//Session active
+if (isset($_SESSION['admin']) && $_SESSION['admin']){
     try{
         $dbConn = getConnection();
         //Get event info for selected event to be put into fields
@@ -76,12 +79,12 @@ $eventID = isset($_REQUEST['eventID']) ? $_REQUEST['eventID'] : null;
     catch (Exception $e){
         echo "<p>Query failed: ".$e->getMessage()."</p>\n";
     }//end catch
-//}//end if
-//if user is not logged in display an error message
-//else {
-    //echo "<h2>Access Denied!</h2>\n
-            //<p>Login to view record list and/or edit details for records.</p>\n";
-//}//end else
+}else{
+  //user does not have access rights
+  //redirect to login
+  header('Location: adminDash.php');
+  die();
+}
 echo "</div>";
 echo endPage();
 ?>

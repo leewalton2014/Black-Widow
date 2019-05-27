@@ -1,6 +1,9 @@
 <?php
 //link to functions script
 require_once('functions.php');
+//start session
+setSessionPath();
+//start page layout
 startHTML('Signup', 'Sign up to purchase Tickets');
 pageHeader('');
 titleBanner('Customer Signup', 'Signup to gain access to buy tickets.');

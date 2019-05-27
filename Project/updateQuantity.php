@@ -1,6 +1,7 @@
 <?php
 require_once('functions.php');
-
+//start session
+setSessionPath();
 //Get id of item to update
 $cartItemID = filter_has_var(INPUT_POST, 'cartItemID') ? $_POST['cartItemID'] : null;
 $cartitemID = trim($cartItemID);
@@ -8,7 +9,7 @@ $cartitemID = trim($cartItemID);
 $itemQuantity = filter_has_var(INPUT_POST, 'itemQuantity') ? $_POST['itemQuantity'] : null;
 $itemQuantity = trim($itemQuantity);
 //temp username var
-$username = "LWalton";
+$username = $_SESSION['userid'];
 
 try {
     $dbConn = getConnection();//Connect to db

@@ -9,7 +9,7 @@ pageHeader('View Order');
 titleBanner('Order View', 'View contents of your previous order');
 echo "<div class='parent'>";
 $orderNumber = isset($_REQUEST['orderNumber']) ? $_REQUEST['orderNumber'] : null;
-$username = "LWalton";
+$username = $_SESSION['userid'];
 echo "<h2>Order #$orderNumber</h2>\n";
 echo "<table class='orderItems'>\n
             <tr>\n
@@ -21,10 +21,7 @@ echo "<table class='orderItems'>\n
 try{
 
     $dbConn = getConnection();
-    //Display cart items
-    //$username = $_SESSION['username'];
-    $username = "LWalton";
-
+    //Display items
     $getOrders = "SELECT eventTitle, eventDate, saleQuantity, saleQuantity*ticketPrice AS TotalPrice
     FROM aa_sales
     INNER JOIN aa_events ON aa_sales.eventID = aa_events.eventID
@@ -44,7 +41,7 @@ try{
     $grandTotal = "SELECT SUM(saleQuantity*ticketPrice) AS GrandTotal
     FROM aa_sales
     INNER JOIN aa_events ON aa_sales.eventID = aa_events.eventID
-    WHERE orderNumber = '$orderNumber' AND custID = '$username'";
+    WHERE orderNumber = '$orderNumber'";
     $gTotalResult = $dbConn->query($grandTotal);
     $gTotal = $gTotalResult->fetchObject();
     echo "<tr>\n";

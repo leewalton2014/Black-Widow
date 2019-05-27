@@ -1,6 +1,9 @@
 <?php
 //link to functions script
 require_once('functions.php');
+//start session
+setSessionPath();
+//start page layout
 startHTML('Event view', 'Viewing event details');
 pageHeader('Event view');
 

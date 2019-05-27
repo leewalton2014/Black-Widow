@@ -1,10 +1,15 @@
 <?php
 //link to functions script
 require_once('functions.php');
+//start session
+setSessionPath();
+//start page layout
 startHTML('Events', 'Select an event to modify');
 pageHeader('Modify events');
 titleBanner('Modify an Event', 'Select one of the events from the list to edit event details');
 echo "<div class='parent'>";
+if (isset($_SESSION['admin']) && $_SESSION['admin']){
+//display list
 echo "<table class='editEvents'>\n
             <tr>\n
             <th class='editTitle'>Event</th>\n
@@ -39,6 +44,11 @@ echo "<table class='editEvents'>\n
         echo "<p>Connection to database failled please contact website developer.</p>\n";
       }//end catch
 echo "</table>";
+}else{
+  //redirect to admin dashboard
+  header('Location: adminDash.php');
+  die();
+}
 echo "</div>";
 echo "</article>";
 echo endPage();

@@ -16,17 +16,7 @@ function setSessionPath(){
     ini_set('session.save_path', '/home/unn_w17007224/sessionData');
     session_start();
     //get previous page to use for redirects back
-    $_SESSION['previous_page'] =  $_SERVER['HTTP_REFERER'];//$_SERVER['REQUEST_URI'];
-}
-//Cart Functions
-//Cart item count
-function cartItemCounter(){
-    $custID = 999;
-    $countSQL = 'SELECT sum(cartItemQuantity)
-    FROM aa_cart
-    WHERE custID = $custID';
-    $count = exec($countSQL);
-    return $count;
+    $_SESSION['previous_page'] =  $_SERVER['HTTP_REFERER'];
 }
 //Page Sections
 //Navigation
@@ -205,7 +195,7 @@ function endPage(){
                     <i>Copyright &copy; Avengers Arena</i>
                   </div>
                   <div id='footerNav'>
-  				  <ul>
+  				            <ul>
                       <li><a href=''>About</a></li>
                       <li><a href='viewEvents.php'>View Events</a></li>
                       <li><a href=''>Merchandice</a></li>
@@ -233,10 +223,5 @@ function endPage(){
 
   </html>";
   return $content;
-}
-function filterInput($elementID){
-  $input = filter_has_var(INPUT_POST, '$elementID') ? $_POST['$elementID'] : null;
-  $eventTitle = trim($input);
-  return $input;
 }
 ?>

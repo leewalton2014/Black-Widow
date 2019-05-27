@@ -1,10 +1,15 @@
 <?php
 //link to functions script
 require_once('functions.php');
-startHTML('Signup', 'Sign up to purchase Tickets');
-pageHeader('');
+//start session
+setSessionPath();
+//start page layout
+startHTML('Dashboard', 'Create admin user');
+pageHeader('Create Admin User');
 titleBanner('New Admin Form', 'Create new account with admin access');
 echo "<div class='parent'>\n";
+if (isset($_SESSION['admin']) && $_SESSION['admin']){
+//display form
 echo "<h2>Create new administrator account</h2>
 <p>Please note this creates a new account with admin/management access. Please ensure ALL fields are filled in.</p>
 <form action='newAdminProcess.php' method='POST' enctype='multipart/form-data' id='newAdmin'>
@@ -20,6 +25,11 @@ echo "<h2>Create new administrator account</h2>
 <input type='password' id='passwordCheck' name='passwordCheck'>
 <input type='submit' value='Create Account'>
 </form>";
+}else{
+  //redirect to admin dashboard
+  header('Location: adminDash.php');
+  die();
+}
 echo "</div>";
 echo endPage();
 ?>

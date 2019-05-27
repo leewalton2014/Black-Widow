@@ -1,6 +1,8 @@
 <?php
 
 require_once('functions.php');
+//start session
+setSessionPath();
 
 try {
     $dbConn = getConnection();//Connect to db
