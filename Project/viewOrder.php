@@ -7,12 +7,8 @@ setSessionPath();
 startHTML('Order Details', 'View items in a specific order');
 pageHeader('View Order');
 titleBanner('Order View', 'View contents of your previous order');
-<<<<<<< HEAD
 echo "<div'>";
-=======
-echo "<div class='parent'>";
 echo "<div>";
->>>>>>> origin/master
 $orderNumber = isset($_REQUEST['orderNumber']) ? $_REQUEST['orderNumber'] : null;
 if (isset($_SESSION['customer']) || isset($_SESSION['admin'])){
 echo "<h2 class='accountHeading'>Order #$orderNumber</h2>\n";
@@ -72,7 +68,6 @@ if(isset($_SERVER['HTTP_REFERER'])){
   $redirect = "javascript:history.go(-1)";
 }
 echo "<a class='accountLogOut' href='$redirect'>&#60; Back</a>\n";
-echo "</div>";
 echo "</div>";
 echo "</article>";
 echo endPage();
