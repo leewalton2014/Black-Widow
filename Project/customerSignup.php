@@ -8,8 +8,7 @@ startHTML('Signup', 'Sign up to purchase Tickets');
 pageHeader('');
 titleBanner('Customer Signup', 'Signup to gain access to buy tickets.');
 echo "<div class='parent'>\n";
-echo"
-<div class='logIn'>
+echo"<div class='logIn'>
   <h1>Register</h1>
   <form action='customerSignupProcess.php' method='POST' enctype='multipart/form-data' id='customerLogin'>
   <div class='parent, logInParent' >
@@ -32,7 +31,7 @@ echo"
   </div>
   <div class='parent, logInParent'>
     <img src='icons/iconmonstr-lock-15-24.png'/>
-    <input placeholder='Confirm Password' type='password' id='password' name='password'>
+    <input placeholder='Confirm Password' type='password' id='password' name='passwordCheck'>
   </div>
   <input value='Create Account' class='logInSubmit' type='submit'/>
   </form>
@@ -40,9 +39,7 @@ echo"
     <img src='icons/iconmonstr-user-8-24.png'/>
     <a href='customerLogin.php'>Log In</a>
   </div>
-</div>
-";
-
+</div>";
 echo "</div>";
 echo endPage();
 ?>

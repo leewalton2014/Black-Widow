@@ -9,8 +9,9 @@ pageHeader('Create Admin User');
 titleBanner('New Admin Form', 'Create new account with admin access');
 echo "<div class='parent'>\n";
 if (isset($_SESSION['admin']) && $_SESSION['admin']){
+echo "<div class='logIn'>\n";
 //display form
-echo "<h2>Create new administrator account</h2>
+echo "<h1>Create account</h1>
 <p>Please note this creates a new account with admin/management access. Please ensure ALL fields are filled in.</p>
 <form action='newAdminProcess.php' method='POST' enctype='multipart/form-data' id='newAdmin'>
 <label for='forename'>Forename:</label>
@@ -22,9 +23,17 @@ echo "<h2>Create new administrator account</h2>
 <label for='password'>Password:</label>
 <input type='password' id='password' name='password'>
 <label for='passwordCheck'>Confirm Password:</label>
-<input type='password' id='passwordCheck' name='passwordCheck'>
-<input type='submit' value='Create Account'>
+<input type='password' id='password' name='passwordCheck'>
+<input type='submit' class='logInSubmit' value='Create Account'>
 </form>";
+if(isset($_SERVER['HTTP_REFERER'])){
+  $redirect = $_SERVER['HTTP_REFERER'];
+}else{
+  //use browser local previous page
+  $redirect = "javascript:history.go(-1)";
+}
+echo "<a class='button' href='$redirect'>Back</a>\n";
+echo "</div>\n";
 }else{
   //redirect to admin dashboard
   header('Location: adminDash.php');

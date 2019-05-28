@@ -8,8 +8,9 @@ startHTML('Admin Dashboard', 'Manage site content');
 pageHeader('');
 titleBanner('Website Management Portal', 'Use the links below to manage website content');
 echo "<div class='parent'>\n";
-echo "<div>\n";
 if (isset($_SESSION['admin']) && $_SESSION['admin']){
+echo "<div>\n";
+echo "<h2>Quick Links</h2>\n";
 echo "<a href='addEventForm.php'>Create Event</a><br>\n";
 echo "<a href='editEventList.php'>Modify Events</a><br>\n";
 echo "<a href='newAdminForm.php'>Create new admin account</a><br>\n";
@@ -48,6 +49,7 @@ try{
     echo "<p>Query failed: ".$e->getMessage()."</p>\n";
 }//end catch
 echo "</table>\n";
+echo "</div>\n";
 }else{
   //Admin user is not logged in
   //Login to admin account
@@ -66,7 +68,6 @@ echo "</table>\n";
     </form>
   </div>";
 }
-echo "</div>\n";
 echo "</div>\n";
 echo "</article>\n";
 echo endPage();

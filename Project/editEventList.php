@@ -9,6 +9,7 @@ pageHeader('Modify events');
 titleBanner('Modify an Event', 'Select one of the events from the list to edit event details');
 echo "<div class='parent'>";
 if (isset($_SESSION['admin']) && $_SESSION['admin']){
+echo"<div>";
 //display list
 echo "<table class='editEvents'>\n
             <tr>\n
@@ -44,6 +45,14 @@ echo "<table class='editEvents'>\n
         echo "<p>Connection to database failled please contact website developer.</p>\n";
       }//end catch
 echo "</table>";
+if(isset($_SERVER['HTTP_REFERER'])){
+  $redirect = $_SERVER['HTTP_REFERER'];
+}else{
+  //use browser local previous page
+  $redirect = "javascript:history.go(-1)";
+}
+echo "<a class='button' href='$redirect'>Back</a>\n";
+echo"</div>";
 }else{
   //redirect to admin dashboard
   header('Location: adminDash.php');
