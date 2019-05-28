@@ -1197,8 +1197,31 @@ button:hover .cartIcon {
   cursor: pointer;
 }
 
+/* -------------- Account View ------------- */
 
+.accountHeading {
+  display: block;
+  font-size: 150%;
+  padding-top: 40px;
+  padding-bottom: 20px;
+}
+.orderTable {
+  width: 60%;
+  text-align: left;
+  background-color: white;
+}
+.orderTable th, .orderTable td {
+  padding: 10px;
+}
 
+.orderTable b {
+  font-weight: bold;
+}
+
+.accountLogOut {
+  margin-top: 20px;
+  display: block;
+}
 /* -------------- Media Query ------------- */
 
 @media only screen and (min-width: 768px) {

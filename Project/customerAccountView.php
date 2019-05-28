@@ -7,19 +7,18 @@ setSessionPath();
 startHTML('Your Account', 'View customer account information');
 pageHeader('View Account');
 titleBanner('Your Account', 'View your details and view your previous orders');
-echo "<div class='parent'>";
+echo "<div>";
 $username = $_SESSION['userid'];
 
 //check if customer is logged in
 if (isset($_SESSION['customer']) && $_SESSION['customer']){
-echo "<h2>Update Your Info</h2>\n";
 
-echo "<h2>Your Previous Orders</h2>\n";
+echo "<h2 class='accountHeading'>Your Previous Orders</h2>\n";
 echo "<table class='orderTable'>\n
             <tr>\n
-            <th class='orderNo'>Order Number</th>\n
-            <th class='orderDate'>Order Date</th>\n
-            <th class='itemQuantity'>No. Of Items</th>\n
+            <th class='orderNo'><b>Order Number</b></th>\n
+            <th class='orderDate'><b>Order Date</b></th>\n
+            <th class='itemQuantity'><b>No. Of Items</b></th>\n
             </tr>\n";
 try{
 
@@ -46,7 +45,7 @@ catch (Exception $e){
   }//end catch
 
 echo "</table>";
-echo "<a href='logout.php'>Logout</a><br>\n";
+echo "<a class='accountLogOut' href='logout.php'>Logout</a><br>\n";
 }else{
   //else customer is not logged in
   //send to login page
