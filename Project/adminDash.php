@@ -7,7 +7,6 @@ setSessionPath();
 startHTML('Admin Dashboard', 'Manage site content');
 pageHeader('');
 titleBanner('Website Management Portal', 'Use the links below to manage website content');
-echo "<div class='parent'>\n";
 if (isset($_SESSION['admin']) && $_SESSION['admin']){
 echo "<div>\n";
 echo "<h2>Quick Links</h2>\n";
@@ -68,7 +67,6 @@ echo "</div>\n";
     </form>
   </div>";
 }
-echo "</div>\n";
 echo "</article>\n";
 echo endPage();
 ?>
