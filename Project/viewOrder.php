@@ -7,17 +7,21 @@ setSessionPath();
 startHTML('Order Details', 'View items in a specific order');
 pageHeader('View Order');
 titleBanner('Order View', 'View contents of your previous order');
+<<<<<<< HEAD
+echo "<div'>";
+=======
 echo "<div class='parent'>";
 echo "<div>";
+>>>>>>> origin/master
 $orderNumber = isset($_REQUEST['orderNumber']) ? $_REQUEST['orderNumber'] : null;
 if (isset($_SESSION['customer']) || isset($_SESSION['admin'])){
-echo "<h2>Order #$orderNumber</h2>\n";
+echo "<h2 class='accountHeading'>Order #$orderNumber</h2>\n";
 echo "<table class='orderItems'>\n
             <tr>\n
-            <th class='eventName'>Event Name</th>\n
-            <th class='date'>Event Date</th>\n
-            <th class='itemQuantity'>Quantity</th>\n
-            <th class='totalPrice'>Total Price</th>\n
+            <th class='eventName'><b>Event Name</b></th>\n
+            <th class='date'><b>Event Date</b></th>\n
+            <th class='itemQuantity'><b>Quantity</b></th>\n
+            <th class='totalPrice'><b>Total Price</b></th>\n
             </tr>\n";
 try{
 
@@ -67,7 +71,7 @@ if(isset($_SERVER['HTTP_REFERER'])){
   //use browser local previous page
   $redirect = "javascript:history.go(-1)";
 }
-echo "<a class='button' href='$redirect'>Back</a>\n";
+echo "<a class='accountLogOut' href='$redirect'>&#60; Back</a>\n";
 echo "</div>";
 echo "</div>";
 echo "</article>";
