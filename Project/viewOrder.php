@@ -7,9 +7,6 @@ setSessionPath();
 startHTML('Order Details', 'View items in a specific order');
 pageHeader('View Order');
 titleBanner('Order View', 'View contents of your previous order');
-<<<<<<< HEAD
-echo "<div'>";
-=======
 echo "<div class='parent'>";
 echo "<div>";
 >>>>>>> origin/master
