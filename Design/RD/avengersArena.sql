@@ -61,6 +61,7 @@ CREATE TABLE IF NOT EXISTS `aa_sales` (
   `eventID` varchar(10) default NULL,
   `saleQuantity` int(6) default NULL,
   `orderNumber` varchar(255) default NULL,
+  `orderDate` date default NULL,
   PRIMARY KEY (`saleID`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=979;
 
