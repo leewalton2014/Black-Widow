@@ -954,6 +954,9 @@ button:hover .cartIcon {
 .cartInfo {
   width: 40%;
 }
+.cartItem form {
+  width: 60%;
+}
 .cartRemove{
   display: block;
   padding-top: 10px;
