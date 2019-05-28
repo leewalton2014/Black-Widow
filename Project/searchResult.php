@@ -1,7 +1,11 @@
 <?php
 //link to functions script
 require_once('functions.php');
-echo startPage();
+//start session
+setSessionPath();
+//start page layout
+startHTML('Search Result', 'Search upcoming events');
+pageHeader('Search Result');
 $searchTerm = filter_has_var(INPUT_GET, 'searchBox') ? $_GET['searchBox'] : null;
 $searchTerm = trim($searchTerm);
 echo "<img id='logo' src='Images/logo.png'/>
@@ -18,7 +22,6 @@ echo "<img id='logo' src='Images/logo.png'/>
         <input id='searchSubmit' type='submit'/>
         </form>
       </div>";
-echo "<a href='viewEvents.php'>Return to all events</a>";
 echo "<div id='eventWrap'>";
     try{
         $dbConn = getConnection();
@@ -47,7 +50,7 @@ echo "<div id='eventWrap'>";
         echo "<p>Query failed: ".$e->getMessage()."</p>\n";
       }//end catch
 echo "</div>";
+echo "<a href='viewEvents.php'>Return to all events</a>";
 echo "</article>";
-
 echo endPage();
 ?>
