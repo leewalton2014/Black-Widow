@@ -9,7 +9,6 @@ pageHeader('View Order');
 titleBanner('Order View', 'View contents of your previous order');
 echo "<div class='parent'>";
 echo "<div>";
->>>>>>> origin/master
 $orderNumber = isset($_REQUEST['orderNumber']) ? $_REQUEST['orderNumber'] : null;
 if (isset($_SESSION['customer']) || isset($_SESSION['admin'])){
 echo "<h2 class='accountHeading'>Order #$orderNumber</h2>\n";
