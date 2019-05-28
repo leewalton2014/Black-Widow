@@ -44,10 +44,10 @@ function pageHeader($currentPage){
   //if nav link is current page then apply active styling to current nav tab
   //else display origional formatting
   if($currentPage == "About"){
-    $nav .= "<li class='active'><a href=''><img src='icons/round-supervised_user_circle-24px.svg'/>About</a></li>\n";
+    $nav .= "<li class='active'><a href='aboutUs.php'><img src='icons/round-supervised_user_circle-24px.svg'/>About</a></li>\n";
   }
   else{
-    $nav .= "<li><a href=''><img src='icons/round-supervised_user_circle-24px.svg'/>About</a></li>\n";
+    $nav .= "<li><a href='aboutUs.php'><img src='icons/round-supervised_user_circle-24px.svg'/>About</a></li>\n";
   }
   if($currentPage == "View Events"){
     $nav .= "<li class='active'><a href='viewEvents.php'><img src='icons/round-event_note-24px.svg'/>View Events</a></li>\n";
