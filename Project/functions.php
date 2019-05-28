@@ -13,10 +13,9 @@ function getConnection() {
 //Sessions
 //Function to start sessions and set path
 function setSessionPath(){
-    ini_set('session.save_path', '/home/unn_w17007224/sessionData');
+    $currentPath = getcwd();
+    ini_set('session.save_path', $currentPath.'/sessionData');
     session_start();
-    //get previous page to use for redirects back
-    $_SESSION['previous_page'] =  $_SERVER['HTTP_REFERER'];
 }
 //Page Sections
 //Navigation

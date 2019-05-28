@@ -9,7 +9,7 @@ pageHeader('View Order');
 titleBanner('Order View', 'View contents of your previous order');
 echo "<div class='parent'>";
 $orderNumber = isset($_REQUEST['orderNumber']) ? $_REQUEST['orderNumber'] : null;
-$username = $_SESSION['userid'];
+if (isset($_SESSION['customer']) || isset($_SESSION['admin'])){
 echo "<h2>Order #$orderNumber</h2>\n";
 echo "<table class='orderItems'>\n
             <tr>\n
@@ -56,7 +56,16 @@ catch (Exception $e){
     echo "<p>Error finding orders, check again later.</p>\n";
   }//end catch
 echo "</table>";
-$redirect = $_SESSION['previous_page'];
+}else{
+  //user or admin not logged include
+  echo "<p>Please login to view order info.</p>";
+}
+if(isset($_SERVER['HTTP_REFERER'])){
+  $redirect = $_SERVER['HTTP_REFERER'];
+}else{
+  //use browser local previous page
+  $redirect = "javascript:history.go(-1)";
+}
 echo "<a class='button' href='$redirect'>Back</a>\n";
 echo "</div>";
 echo "</article>";
