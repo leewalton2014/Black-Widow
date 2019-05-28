@@ -31,9 +31,9 @@ function pageHeader($currentPage){
   $nav .= "<img alt='log in' src='icons/iconmonstr-log-out-13-24.png'/>\n";
   $nav .= "<h2>Log in</h2>\n";
   $nav .= "</a>\n";
-  $nav .= "<a href='customerAccountView.php' id='logIn'>\n";
+  $nav .= "<a href='customerAccountView.php' id='logIn' class='logInWide'>\n";
   $nav .= "<img alt='account view' src='icons/iconmonstr-user-1-24.png'/>\n";
-  $nav .= "<h2>View Account</h2>\n";
+  $nav .= "<h2>Account</h2>\n";
   $nav .= "</a>\n";
   $nav .= "<a href='viewCart.php' id='logIn'>\n";
   $nav .= "<img alt='cart' src='icons/iconmonstr-shopping-cart-3-24.png'/>\n";

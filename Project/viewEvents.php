@@ -4,8 +4,8 @@ require_once('functions.php');
 startHTML('Events', 'Our upcoming events');
 pageHeader('View Events');
 titleBanner('Whats on?', 'Upcoming events at the avengers arena');
-echo "<div class='featuredSearch'>
-        <form action='searchResult.php' method='GET' enctype='multipart/form-data' id='searchEvents'>
+echo "<div>
+        <form class='featuredSearch' action='searchResult.php' method='GET' enctype='multipart/form-data' id='searchEvents'>
         <input type='text' placeholder='Search' id='searchBox' name='searchBox'/>
         <input id='searchSubmit' type='submit'/>
         </form>

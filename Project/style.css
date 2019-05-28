@@ -90,6 +90,9 @@ header {
   cursor: pointer;
   text-decoration: none;
 }
+.logInWide {
+  max-width: 140px !important;
+}
 #logIn h2 {
   font-family: 'Montserrat', sans-serif;
   letter-spacing: 0;
@@ -538,6 +541,9 @@ check {  50% {
 /* New Row After 3 .event 's */
 .event:nth-child(n + 4) {
   order: 1;
+}
+.event:nth-child(n + 7) {
+  order: 2;
 }
 .event a i {
   opacity: 0;
