@@ -13,10 +13,9 @@ function getConnection() {
 //Sessions
 //Function to start sessions and set path
 function setSessionPath(){
-    ini_set('session.save_path', '/home/unn_w15024065/sessionData');
+    $currentPath = getcwd();
+    ini_set('session.save_path', $currentPath.'/sessionData');
     session_start();
-    //get previous page to use for redirects back
-    $_SESSION['previous_page'] =  $_SERVER['HTTP_REFERER'];
 }
 //Page Sections
 //Navigation
@@ -31,9 +30,9 @@ function pageHeader($currentPage){
   $nav .= "<img alt='log in' src='icons/iconmonstr-log-out-13-24.png'/>\n";
   $nav .= "<h2>Log in</h2>\n";
   $nav .= "</a>\n";
-  $nav .= "<a href='customerAccountView.php' id='logIn' class='logInWide'>\n";
-  $nav .= "<img alt='account view' src='icons/iconmonstr-id-card-8-24.png'/>\n";
-  $nav .= "<h2>Account</h2>\n";
+  $nav .= "<a href='customerAccountView.php' id='logIn'>\n";
+  $nav .= "<img alt='account view' src='icons/iconmonstr-user-1-24.png'/>\n";
+  $nav .= "<h2>View Account</h2>\n";
   $nav .= "</a>\n";
   $nav .= "<a href='viewCart.php' id='logIn'>\n";
   $nav .= "<img alt='cart' src='icons/iconmonstr-shopping-cart-3-24.png'/>\n";
