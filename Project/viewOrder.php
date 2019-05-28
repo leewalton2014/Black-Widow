@@ -8,6 +8,7 @@ startHTML('Order Details', 'View items in a specific order');
 pageHeader('View Order');
 titleBanner('Order View', 'View contents of your previous order');
 echo "<div class='parent'>";
+echo "<div>";
 $orderNumber = isset($_REQUEST['orderNumber']) ? $_REQUEST['orderNumber'] : null;
 if (isset($_SESSION['customer']) || isset($_SESSION['admin'])){
 echo "<h2>Order #$orderNumber</h2>\n";
@@ -67,6 +68,7 @@ if(isset($_SERVER['HTTP_REFERER'])){
   $redirect = "javascript:history.go(-1)";
 }
 echo "<a class='button' href='$redirect'>Back</a>\n";
+echo "</div>";
 echo "</div>";
 echo "</article>";
 echo endPage();

@@ -7,6 +7,7 @@ setSessionPath();
 startHTML('Your Account', 'View customer account information');
 pageHeader('View Account');
 titleBanner('Your Account', 'View your details and view your previous orders');
+echo "<div class='parent'>";
 echo "<div>";
 $username = $_SESSION['userid'];
 
@@ -52,6 +53,7 @@ echo "<a class='accountLogOut' href='logout.php'>Logout</a><br>\n";
   header('Location: customerLogin.php');
   die();
 }
+echo "</div>";
 echo "</div>";
 echo "</article>";
 echo endPage();
