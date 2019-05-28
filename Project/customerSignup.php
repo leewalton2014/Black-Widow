@@ -8,25 +8,40 @@ startHTML('Signup', 'Sign up to purchase Tickets');
 pageHeader('');
 titleBanner('Customer Signup', 'Signup to gain access to buy tickets.');
 echo "<div class='parent'>\n";
-echo "<h2>Signup</h2>
-<p>Ensure ALL fields are filled in.</p>
-<form action='customerSignupProcess.php' method='POST' enctype='multipart/form-data' id='newCustomer'>
-<label for='forename'>Forename:</label>
-<input type='text' id='forename' name='forename'>
-<label for='surname'>Surname:</label>
-<input type='text' id='surname' name='surname'>
-<label for='email'>Email:</label>
-<input type='text' id='email' name='email'>
-<label for='username'>Username:</label>
-<input type='text' id='username' name='username'>
-<label for='password'>Password:</label>
-<input type='password' id='password' name='password'>
-<label for='passwordCheck'>Confirm Password:</label>
-<input type='password' id='passwordCheck' name='passwordCheck'>
-<input type='submit' value='Create Account'>
-</form>";
-
-
+echo"
+<div class='logIn'>
+  <h1>Register</h1>
+  <form action='customerSignupProcess.php' method='POST' enctype='multipart/form-data' id='customerLogin'>
+  <div class='parent, logInParent' >
+    <input placeholder='First Name' type='text' id='forename' name='forename'>
+  </div>
+  <div class='parent, logInParent' >
+    <input placeholder='Surname' type='text' id='surname' name='surname'>
+  </div>
+  <div class='parent, logInParent' >
+    <img src='icons/iconmonstr-email-1-24.png'/>
+    <input placeholder='Email' type='text' id='email' name='email'>
+  </div>
+  <div class='parent, logInParent' >
+    <img src='icons/iconmonstr-user-1-24.png'/>
+    <input placeholder='Username' type='text' id='username' name='username'>
+  </div>
+  <div class='parent, logInParent'>
+    <img src='icons/iconmonstr-lock-15-24.png'/>
+    <input placeholder='Password' type='password' id='password' name='password'>
+  </div>
+  <div class='parent, logInParent'>
+    <img src='icons/iconmonstr-lock-15-24.png'/>
+    <input placeholder='Confirm Password' type='password' id='password' name='password'>
+  </div>
+  <input value='Create Account' class='logInSubmit' type='submit'/>
+  </form>
+  <div class='parent, logInParent'>
+    <img src='icons/iconmonstr-user-8-24.png'/>
+    <a href='customerLogin.php'>Log In</a>
+  </div>
+</div>
+";
 
 echo "</div>";
 echo endPage();

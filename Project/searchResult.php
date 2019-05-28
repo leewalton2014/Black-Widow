@@ -12,8 +12,8 @@ echo "<img id='logo' src='Images/logo.png'/>
         <p id='tagline'>Results for ... '$searchTerm'</p>
         <h3>Events</h3>
       </div>
-      <div class='featuredSearch'>
-        <form action='searchResult.php' method='GET' enctype='multipart/form-data' id='searchEvents'>
+      <div>
+        <form class='featuredSearch' action='searchResult.php' method='GET' enctype='multipart/form-data' id='searchEvents'>
         <input type='text' placeholder='$searchTerm' id='searchBox' name='searchBox'/>
         <input id='searchSubmit' type='submit'/>
         </form>
