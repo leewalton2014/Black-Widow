@@ -13,7 +13,7 @@ function getConnection() {
 //Sessions
 //Function to start sessions and set path
 function setSessionPath(){
-    ini_set('session.save_path', '/home/unn_w17007224/sessionData');
+    ini_set('session.save_path', '/home/unn_w15024065/sessionData');
     session_start();
     //get previous page to use for redirects back
     $_SESSION['previous_page'] =  $_SERVER['HTTP_REFERER'];
@@ -32,7 +32,7 @@ function pageHeader($currentPage){
   $nav .= "<h2>Log in</h2>\n";
   $nav .= "</a>\n";
   $nav .= "<a href='customerAccountView.php' id='logIn' class='logInWide'>\n";
-  $nav .= "<img alt='account view' src='icons/iconmonstr-user-1-24.png'/>\n";
+  $nav .= "<img alt='account view' src='icons/iconmonstr-id-card-8-24.png'/>\n";
   $nav .= "<h2>Account</h2>\n";
   $nav .= "</a>\n";
   $nav .= "<a href='viewCart.php' id='logIn'>\n";
