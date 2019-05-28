@@ -40,35 +40,36 @@ FROM aa_customers
 WHERE custUsername = '$username'";
 $usernames = $dbConn->query($checkusername);
 $usernameCount = $usernames->fetchObject();
-//check username is not currently in use
-if($usernameCount->UsernameCount==0){
-//check if password check matches
-if($password == $passwordCheck){
-  //if($errors){
-    //foreach($errors as $error)
-    //{
-      //echo "<p>$error</p><br>\n";
-    //}
-  //}else{
-    $queryResult = $dbConn->query($addUserInfo);
-    if ($queryResult === false) {
-      echo "<p>Please try again!</p>\n";
-      exit;
-    } else {
-      header("Location: customerAccountView.php");
-      die();
-      //change to customer page later
-    }
-}else{
-  //if($errors){
-    //foreach($errors as $error){
-      //echo "<p>$error</p><br>\n";
-    //}
-  echo "<p>Please ensure password and confirmation password are the same! <a href='customerSignup.php'>Try again.</a></p>\n";
-  //}
+//validate form input
+$required = array('forename','surname','username','email','password','passwordCheck');
+$error = false;
+//check form elements are not empty
+foreach($required as $field){
+  if(empty($_POST[$field])){
+    $error = true;
+  }
 }
+if($error == true){
+  echo "<p>Pleasse ensure all fields are filled in. <a href='customerSignup.php'>Try again.</a></p>\n";
 }else{
-  echo "<p>Sorry username allready taken. <a href='customerSignup.php'>Try again.</a></p>\n";
+  //check username is not currently in use
+  if($usernameCount->UsernameCount==0){
+    //check if password check matches
+    if($password == $passwordCheck){
+      $queryResult = $dbConn->query($addUserInfo);
+      if ($queryResult === false) {
+        echo "<p>Please try again! <a href='customerSignup.php'>Try again.</a></p>\n";
+        exit;
+      }else{
+        header("Location: customerAccountView.php");
+        die();
+      }
+    }else{
+      echo "<p>Please ensure password and confirmation password are the same! <a href='customerSignup.php'>Try again.</a></p>\n";
+    }
+  }else{
+    echo "<p>Sorry username allready taken. <a href='customerSignup.php'>Try again.</a></p>\n";
+  }
 }
 echo "</div>";
 echo endPage();
