@@ -85,6 +85,7 @@ try{
       echo "<i>{$rowObj->eventDescription}</i>";
       echo "</a>";
       echo "</section>\n";
+      echo "<p class='breaker'></p>\n";
     }//end while
     echo "</div>\n";
   }

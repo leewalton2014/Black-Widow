@@ -13,10 +13,10 @@ echo"<div>";
 //display list
 echo "<table class='editEvents'>\n
             <tr>\n
-            <th class='editTitle'>Event</th>\n
-            <th class='editDesc'>Description</th>\n
-            <th class='editDate'>Date</th>\n
-            <th class='deleteEvent'>Remove Event</th>\n
+            <th class='editTitle'><b>Event</b></th>\n
+            <th class='editDesc'><b>Description</b></th>\n
+            <th class='editDate'><b>Date</b></th>\n
+            <th class='deleteEvent'><b>Remove Event</b></th>\n
             </tr>\n";
     try{
         $dbConn = getConnection();
@@ -51,7 +51,7 @@ if(isset($_SERVER['HTTP_REFERER'])){
   //use browser local previous page
   $redirect = "javascript:history.go(-1)";
 }
-echo "<a class='button' href='$redirect'>Back</a>\n";
+echo "<a class='backButton' href='$redirect'>&#60; Back</a>\n";
 echo"</div>";
 }else{
   //redirect to admin dashboard
