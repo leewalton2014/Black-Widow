@@ -135,6 +135,8 @@ BANNER;
   echo $banner;
 }
 //Page Start
+//all in one static page start
+//unused - kept in for reference
 function startPage(){
   $content = "<!doctype html>
   <html lang='en'>
