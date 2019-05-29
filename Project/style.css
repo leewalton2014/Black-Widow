@@ -1284,6 +1284,60 @@ button:hover .cartIcon {
   display: block;
 }
 
+/* -------------- About us ------------- */
+
+.aboutSidebar {
+  width: 30%;
+  padding: 10px;
+}
+.aboutMain {
+  width: 70%;
+  padding: 10px;
+}
+.map {
+  filter: grayscale(100%);
+  padding-bottom: 20px;
+}
+.aboutMain h2 {
+  margin-bottom: 10px;
+}
+#contactForm input, #contactForm textarea {
+  padding: 10px;
+  font-family: 'Montserrat', sans-serif;
+  display: block;
+  margin-bottom: 5px;
+  margin-top: 5px;
+}
+#contactName, #contactEmail {
+  width: 50%;
+}
+#contactMessage {
+  width: 100%;
+  height: 180px;
+}
+#contactSend {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  width: 100%;
+  display: block;
+  padding: 10px;
+  border: none;
+  background-color: #e25757;
+  font-size: 100%;
+  color: white;
+  letter-spacing: 2px;
+  font-family: 'lemonmilkbold', 'Heebo';
+  font-weight: bolder;
+  text-transform: uppercase;
+  transition: .3s ease ;
+}
+#contactSend:hover {
+  background-color: #cb4e4e;
+  letter-spacing: 5px;
+  cursor: pointer;
+}
+
+
 /* -------------- Media Query ------------- */
 
 @media only screen and (min-width: 768px) {
