@@ -5,6 +5,7 @@ require_once('functions.php');
 setSessionPath();
 //get event id
 $eventID = isset($_REQUEST['eventID']) ? $_REQUEST['eventID'] : null;
+
 try{
     $dbConn = getConnection();
     //Get event info for selected event to be put into fields
@@ -12,14 +13,15 @@ try{
                   WHERE eventID = '$eventID'";
     $deleteQuery = $dbConn->query($deleteEvent);
     if ($deleteQuery === false) {
-      echo "<p>Could not remove event, Please try again.</p>\n";
-      exit;
+      header('Location: editEventList.php');
+      exit();
     } else {
       header('Location: editEventList.php');
       exit();
     }
 }//end try
 catch (Exception $e){
-    echo "<p>Query failed: ".$e->getMessage()."</p>\n";
+    header('Location: editEventList.php');
+    exit();
 }//end catch
 ?>
