@@ -379,7 +379,14 @@ nav img {
   -ms-flex-pack: center;
   justify-content: center;
   background-color: #437bac;
+}
+
+#sliderBg1 {
   background-image:url(Images/slider.jpg);
+  background-size: cover;
+}
+#sliderBg3 {
+  background-image:url(Images/arenaSlider.jpg);
   background-size: cover;
 }
 

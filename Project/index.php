@@ -15,19 +15,19 @@ echo "<img id='logo' src='Images/logo.png'/>
     <input type='radio' name='slider' title='slide4' class='slider__nav'/>
 
     <div class='slider__inner'>
-      <div class='slider__contents'>
+      <div class='slider__contents' id='sliderBg1'>
+        <h2 class='slider__caption'>Only The best Events</h2>
+        <p class='slider__txt'>Etiam porttitor lectus in iaculis egestas. Pellentesque in neque sollicitudin, tempor quam vel, rhoncus felis. Integer bibendum posuere mauris id ultricies.</p>
+      </div>
+      <div class='slider__contents' id='sliderBg2'>
+        <h2 class='slider__caption'>View All Events Now</h2>
+        <p class='slider__txt'></p>
+      </div>
+      <div class='slider__contents' id='sliderBg3'>
         <h2 class='slider__caption'>Content Slider Example Text</h2>
         <p class='slider__txt'>Etiam porttitor lectus in iaculis egestas. Pellentesque in neque sollicitudin, tempor quam vel, rhoncus felis. Integer bibendum posuere mauris id ultricies.</p>
       </div>
-      <div class='slider__contents'>
-        <h2 class='slider__caption'>Content Slider Example Text</h2>
-        <p class='slider__txt'>Etiam porttitor lectus in iaculis egestas. Pellentesque in neque sollicitudin, tempor quam vel, rhoncus felis. Integer bibendum posuere mauris id ultricies.</p>
-      </div>
-      <div class='slider__contents'>
-        <h2 class='slider__caption'>Content Slider Example Text</h2>
-        <p class='slider__txt'>Etiam porttitor lectus in iaculis egestas. Pellentesque in neque sollicitudin, tempor quam vel, rhoncus felis. Integer bibendum posuere mauris id ultricies.</p>
-      </div>
-      <div class='slider__contents'>
+      <div class='slider__contents' id='sliderBg4'>
         <h2 class='slider__caption'>Content Slider Example Text</h2>
         <p class='slider__txt'>Etiam porttitor lectus in iaculis egestas. Pellentesque in neque sollicitudin, tempor quam vel, rhoncus felis. Integer bibendum posuere mauris id ultricies.</p>
       </div>

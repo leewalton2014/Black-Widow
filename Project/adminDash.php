@@ -23,9 +23,9 @@ echo "</form>\n";
 echo "<h2 id='dashTitle'>Ticket Sales</h2>\n";
 echo "<table class='orderItems'>\n
             <tr>\n
-            <th class='eventName'>Event Name</th>\n
-            <th class='date'>Event Date</th>\n
-            <th class='totalSales'>Tickets Sold</th>\n
+            <th class='eventName'><b>Event Name</a></th>\n
+            <th class='date'><b>Event Date</a></th>\n
+            <th class='totalSales'><b>Tickets Sold</a></th>\n
             </tr>\n";
 try{
   $dbConn = getConnection();

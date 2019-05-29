@@ -118,7 +118,7 @@ startHTML;
 function titleBanner($title, $subtitle){
   $banner = <<< BANNER
   <main>
-    <img id="logo" src="Images/logo.png"/>
+    <a href='index.php'><img id="logo" src="Images/logo.png"/></a>
       <img class="bannerImg" src="Images/slider.jpg"/>
 
       <article id="featured">
