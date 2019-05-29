@@ -1340,6 +1340,22 @@ button:hover .cartIcon {
   cursor: pointer;
 }
 
+.openingTimesHeader {
+  margin-top: 20px;
+  padding-bottom: 10px;
+}
+.openingTimes {
+  text-align: left;
+  width: 100%;
+  background: white;
+  border-left: 8px solid #e25757;
+}
+.openingTimes th, .openingTimes td {
+  padding: 10px;
+}
+.openingTimes b {
+  font-weight: bold;
+}
 
 /* -------------- Media Query ------------- */
 
@@ -1510,5 +1526,14 @@ button:hover .cartIcon {
     display: block; !important
     right: 20px;
   }
+  .aboutSidebar {
+    width: 100%;
+  }
+  .aboutMain {
+    width: 100%;
+  }
+  #contactName, #contactEmail {
+  width: 100%;
+}
 
 }

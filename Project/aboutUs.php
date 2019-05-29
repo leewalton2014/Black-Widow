@@ -12,7 +12,21 @@ echo "<div class='parent'>
     <div class='map'>
       <iframe src='https://www.google.com/maps/d/embed?mid=1x2AZf0QOGCxt3lifKpmK_ydq_WHi-amS' width='100%' height='260px'></iframe>
     </div>
-    <h2>Opening Times</h2>
+
+    <h2>Contact Us</h2>
+    <form id='contactForm'>
+      <input placeholder='Name' id='contactName' type='text'>
+      <input placeholder='Email' id='contactEmail' type='email'>
+      <textarea placeholder='Message Here' id='contactMessage'></textarea>
+      <input id='contactSend' type='submit' value='Send'>
+    </form>
+  </div>
+  <div class='aboutSidebar'>
+    <h2>About Us</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+    <br>
+    <p>consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
+    <h2 class='openingTimesHeader'>Opening Times</h2>
     <table class='openingTimes'>
     <tr>
     <th class='day'><b>Day</b></th>
@@ -35,19 +49,6 @@ echo "<div class='parent'>
     <td class='hours'>15:00 - 20:00</td>
     </tr>
     </table>
-    <h2>Contact Us</h2>
-    <form id='contactForm'>
-      <input placeholder='Name' id='contactName' type='text'>
-      <input placeholder='Email' id='contactEmail' type='email'>
-      <textarea placeholder='Message Here' id='contactMessage'></textarea>
-      <input id='contactSend' type='submit' value='Send'>
-    </form>
-  </div>
-  <div class='aboutSidebar'>
-    <h2>About Us</h2>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
-    <br>
-    <p>consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
   </div>
 </div>
 </article>";
