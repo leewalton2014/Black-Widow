@@ -26,43 +26,46 @@ $password = trim($password);
 $passwordCheck = filter_has_var(INPUT_POST, 'passwordCheck') ? $_POST['passwordCheck'] : null;
 $passwordCheck = trim($passwordCheck);
 $passwordHash = password_hash($password, PASSWORD_DEFAULT);
-//query
+//queries
+//add user to db
 $newAdmin = "INSERT INTO aa_admins (forename, surname, username, passwordHash)
 VALUES ('$forename','$surname','$username','$passwordHash')";
+//check username does not exist in db
 $checkusername = "SELECT count(username) as UsernameCount
 FROM aa_admins
 WHERE username = '$username'";
 $usernames = $dbConn->query($checkusername);
 $usernameCount = $usernames->fetchObject();
-//check username is not currently in use
-if($usernameCount->UsernameCount==0){
-//check if password check matches
-if($password == $passwordCheck){
-  //if($errors){
-    //foreach($errors as $error)
-    //{
-      //echo "<p>$error</p><br>\n";
-    //}
-  //}else{
-    $queryResult = $dbConn->query($newAdmin);
-    if ($queryResult === false) {
-      echo "<p>Please try again!</p>\n";
-      exit;
-    } else {
-      header("Location: adminDash.php");
-      die();
-      //change to customer page later
-    }
-}else{
-  //if($errors){
-    //foreach($errors as $error){
-      //echo "<p>$error</p><br>\n";
-    //}
-  echo "<p>Please ensure password and confirmation password are the same! <a href='newAdminForm.php'>Try again.</a></p>\n";
-  //}
+//validate form input
+$required = array('forename','surname','username','password','passwordCheck');
+$error = false;
+//check form elements are not empty
+foreach($required as $field){
+  if(empty($_POST[$field])){
+    $error = true;
+  }
 }
+if($error){
+  echo "<p>Pleasse ensure all fields are filled in. <a href='newAdminForm.php'>Try again.</a></p>\n";
 }else{
-  echo "<p>Sorry username allready taken. <a href='newAdminForm.php'>Try again.</a></p>\n";
+  //check username is not currently in use
+  if($usernameCount->UsernameCount==0){
+    //check if password check matches
+    if($password == $passwordCheck){
+      $queryResult = $dbConn->query($newAdmin);
+      if ($queryResult === false) {
+        echo "<p>Please try again! <a href='newAdminForm.php'>Try again.</a></p>\n";
+        exit;
+      } else {
+        header("Location: adminDash.php");
+        die();
+      }
+    }else{
+      echo "<p>Please ensure password and confirmation password are the same! <a href='newAdminForm.php'>Try again.</a></p>\n";
+    }
+  }else{
+    echo "<p>Sorry username allready taken. <a href='newAdminForm.php'>Try again.</a></p>\n";
+  }
 }
 echo "</div>";
 echo endPage();

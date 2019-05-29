@@ -17,6 +17,13 @@ function setSessionPath(){
     ini_set('session.save_path', $currentPath.'/sessionData');
     session_start();
 }
+//sanitise input
+function sanitise_input($input){
+    $input = trim($input);
+    $input = stripslashes($input);
+    $input = htmlspecialchars($input);
+    return $input;
+}
 //Page Sections
 //Navigation
 function pageHeader($currentPage){
