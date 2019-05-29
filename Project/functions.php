@@ -50,6 +50,10 @@ function pageHeader($currentPage){
   $nav .= "<ul>\n";
   //if nav link is current page then apply active styling to current nav tab
   //else display origional formatting
+  $nav .= "<li class='mobileNavHide'><a href='customerLogin.php'>Log In</a></li>\n";
+  $nav .= "<li class='mobileNavHide'><a href='customerAccountView.php'>Account</a></li>\n";
+  $nav .= "<li class='mobileNavHide'><a href='viewCart.php'>View Cart</a></li>\n";
+
   if($currentPage == "About"){
     $nav .= "<li class='active'><a href='aboutUs.php'><img src='icons/round-supervised_user_circle-24px.svg'/>About</a></li>\n";
   }

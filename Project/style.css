@@ -129,6 +129,9 @@ nav {
 #spacer {
   flex: 1;
 }
+nav .mobileNavHide {
+  display: none;
+}
 nav ul {
   list-style-type: none;
   padding: 0;
@@ -1451,10 +1454,10 @@ button:hover .cartIcon {
   .event:nth-child(5) {
     width: 100%;
   }
-  .event:nth-child(3n+2) {
+  .event:nth-child(3n) {
   position: relative;
   top: 0px;
-  }
+}
 
   footer {
     display: block;
@@ -1502,4 +1505,10 @@ button:hover .cartIcon {
   .blogWrap {
     margin-right: 0;
   }
+
+  nav .mobileNavHide {
+    display: block; !important
+    right: 20px;
+  }
+
 }
