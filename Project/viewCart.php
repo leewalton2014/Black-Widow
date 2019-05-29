@@ -75,7 +75,7 @@ echo "</section>";
 echo "<aside class='checkout' id='sticky'>";
 echo "<h2>Checkout</h2>";
 echo "<p class='checkoutPrice'>Total :  £$TotalPrice</p>";
-echo "<button type='submit' form='cart' id='checkoutBtn'><img src='icons/iconmonstr-debit-6-24.png'/>Go to Checkout</button>";
+echo "<button type='submit' form='cart' id='checkoutBtn'><img src='icons/iconmonstr-debit-6-24.png'/>Checkout</button>";
 echo "</aside>";
 }else{
   //user is not logged in
