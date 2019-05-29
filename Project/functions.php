@@ -66,11 +66,11 @@ function pageHeader($currentPage){
   else{
     $nav .= "<li><a href='viewEvents.php'><img src='icons/round-event_note-24px.svg'/>View Events</a></li>\n";
   }
-  if($currentPage == "Merchandice"){
-    $nav .= "<li class='active'><a href=''><img src='icons/t-shirt-black-silhouette.svg'/>Merchandice</a></li>\n";
+  if($currentPage == "Merchandise"){
+    $nav .= "<li class='active'><a href='merchandise.php'><img src='icons/t-shirt-black-silhouette.svg'/>Merchandise</a></li>\n";
   }
   else{
-    $nav .= "<li><a href=''><img src='icons/t-shirt-black-silhouette.svg'/>Merchandice</a></li>\n";
+    $nav .= "<li><a href='merchandise.php'><img src='icons/t-shirt-black-silhouette.svg'/>Merchandise</a></li>\n";
   }
   if($currentPage == "Blog"){
     $nav .= "<li class='active'><a href='viewBlog.php'><img src='icons/round-format_align_left-24px.svg'/>Blog</a></li>\n";
